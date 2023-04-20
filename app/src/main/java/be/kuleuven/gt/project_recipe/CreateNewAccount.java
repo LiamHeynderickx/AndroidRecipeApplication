@@ -38,6 +38,8 @@ public class CreateNewAccount extends AppCompatActivity {
         btnContinue.setVisibility(View.VISIBLE);
         lblAccountCreated.setVisibility(View.VISIBLE);
 
+
+
     }
 
 }
