@@ -50,36 +50,12 @@ public class CreateNewAccount extends AppCompatActivity {
         password = txtPassword.getText().toString();
         confirmPassword = txtConfirmPassword.getText().toString();
 
-        //check for special characters in username
-//        System.out.println(username);
-        boolean speacialCharacters = false;
-        for(int loop = 0; loop < username.length(); loop++){
-            int asciiVal = (int)(username.charAt(loop));
-            System.out.println(asciiVal);
-            if(asciiVal >= 48 && asciiVal <= 57){
-
-            }
-            else if (asciiVal >= 65 && asciiVal <= 90) {
-
-            }
-            else if (asciiVal >= 97 && asciiVal <= 122) {
-
-            } else{
-                speacialCharacters = true;
-            }
-        }
-
-        boolean correctLength = false;
-        if(username.length() > 0 && username.length() <= 15){
-            correctLength = true;
-        }
-
-
-
-
+        //check that inputs are correct;
+        boolean validUsername = checkUsername(username);
+        boolean validpassword = checkPassword(password, confirmPassword);
 
         //if all checks are passed
-        if(speacialCharacters == false && correctLength == true){
+        if(validUsername && validpassword){
             btnContinue.setVisibility(View.VISIBLE);
             lblAccountCreated.setVisibility(View.VISIBLE);
 
@@ -93,7 +69,82 @@ public class CreateNewAccount extends AppCompatActivity {
             lblNote.setVisibility(View.GONE);
         }
 
+    }
+
+
+    private boolean checkUsername(String un){
+
+        //checks characters
+        boolean speacialCharacters = false;
+        for(int loop = 0; loop < un.length(); loop++){
+            int asciiVal = (int)(un.charAt(loop));
+            System.out.println(asciiVal);
+            if(asciiVal >= 48 && asciiVal <= 57){
+
+            }
+            else if (asciiVal >= 65 && asciiVal <= 90) {
+
+            }
+            else if (asciiVal >= 97 && asciiVal <= 122) {
+
+            } else{
+                speacialCharacters = true;
+                txtUsername.setText("");
+                txtUsername.setHint("No Special Characters");
+            }
+        }
+
+        //checks length
+        boolean correctLength = false;
+        if(username.length() > 0 && username.length() <= 15){
+            correctLength = true;
+        }
+        else{
+            txtUsername.setText("");
+            txtUsername.setHint("Invalid Length");
+        }
+
+        //add unique check when database is added
+
+        if(speacialCharacters == false && correctLength == true){
+            return true;
+        }
+        else{
+            return false;
+        }
 
     }
+
+    private boolean checkPassword(String pw, String cpw){
+
+        //check length
+        boolean correctLength = false;
+        if(pw.length() > 0 && pw.length() <= 15){
+            correctLength = true;
+        }
+        else{
+            txtPassword.setText("");
+            txtPassword.setHint("Invalid Length");
+        }
+
+        boolean passwordsEqual = false;
+        //check passwords equal
+        if(pw.equals(cpw)){
+            passwordsEqual = true;
+        }
+        else{
+            txtConfirmPassword.setText("");
+            txtConfirmPassword.setHint("Passwords Don't Match");
+        }
+
+        if(passwordsEqual && correctLength){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
 
 }
