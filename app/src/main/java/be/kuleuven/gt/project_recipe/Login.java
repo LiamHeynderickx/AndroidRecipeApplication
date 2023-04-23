@@ -42,6 +42,8 @@ public class Login extends AppCompatActivity {
 
         if(username.equals("liam") || username.equals("matteo")){
             if(password.equals("12345")){
+                Intent intent2 = new Intent(this, MainActivity.class);
+                startActivity(intent2);
                 finish();
             }
             else{
