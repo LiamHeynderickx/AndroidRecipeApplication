@@ -6,13 +6,121 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/btnSearchRecipes"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="Search"
+        android:onClick="onBtnSearchRecipes_Clicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fruits_and_vegetables_rainbow" />
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/lblSearchRecipes"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:alpha=".8"
+        android:background="@color/material_dynamic_neutral30"
+        android:text="Search Recipes"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSearchRecipes"
+        app:layout_constraintEnd_toEndOf="@+id/btnSearchRecipes"
+        app:layout_constraintStart_toStartOf="@+id/btnSearchRecipes" />
+
+    <ImageButton
+        android:id="@+id/btnFavorites"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/pork_stir_fry"
+        android:contentDescription="favorites"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSearchRecipes"
+        app:srcCompat="@drawable/pork_stir_fry" />
+
+    <TextView
+        android:id="@+id/lblFavorites"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha=".8"
+        android:background="@color/material_dynamic_neutral30"
+        android:text="Favorites"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFavorites"
+        app:layout_constraintEnd_toEndOf="@+id/btnFavorites"
+        app:layout_constraintStart_toStartOf="@+id/btnFavorites" />
+
+    <ImageButton
+        android:id="@+id/btnRecents"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="recents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFavorites"
+        app:srcCompat="@drawable/salad" />
+
+    <TextView
+        android:id="@+id/lblRecents"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha=".8"
+        android:background="@color/material_dynamic_neutral30"
+        android:text="Recents"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btnRecents"
+        app:layout_constraintEnd_toEndOf="@+id/btnRecents"
+        app:layout_constraintStart_toStartOf="@+id/btnRecents" />
+
+    <ImageButton
+        android:id="@+id/btnAddRecipe"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="addRecipe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRecents"
+        app:srcCompat="@drawable/tapas" />
+
+    <TextView
+        android:id="@+id/lblAddRecipe"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.8"
+        android:background="@color/material_dynamic_neutral30"
+        android:text="Add Recipe"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddRecipe"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddRecipe"
+        app:layout_constraintStart_toStartOf="@+id/btnAddRecipe" />
+
+    <TextView
+        android:id="@+id/lblProjectRecipeWatermark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Project_Recipe_Ltd"
+        android:textColor="@color/material_dynamic_neutral60"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
