@@ -2,6 +2,7 @@ package be.kuleuven.gt.project_recipe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +20,7 @@ public class ActionBar extends AppCompatActivity {
 
     }
 
-    public void onBtnHelp_Clicked(){
+    public void onBtnHelp_Clicked(View Caller){
         Intent intent = new Intent(this, Help.class);
         startActivity(intent);
     }
