@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnSearchRecipe;
 
-    private Intent menuOption;
 
 
     @Override
@@ -38,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
+
+    private Intent menuOption; // copy to each activity
+    @Override // copy to each activity
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(menuOption);
                 finish();
                 return true;
+            case R.id.menuHome:
+                menuOption = new Intent(this, MainActivity.class);
+                startActivity(menuOption);
+                finish();
             default:
                 return super.onOptionsItemSelected(item);
         }

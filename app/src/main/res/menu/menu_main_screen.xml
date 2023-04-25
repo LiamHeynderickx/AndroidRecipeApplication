@@ -4,15 +4,23 @@
     tools:context="be.kuleuven.gt.project_recipe.MainScreen">
     <item
         android:id="@+id/menuSettings"
-        android:orderInCategory="100"
+        android:orderInCategory="1"
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
         android:id="@+id/menuHelp"
-        android:orderInCategory="101"
-        android:title="Help" />
+        android:orderInCategory="2"
+        android:title="Help"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/menuLogout"
-        android:orderInCategory="102"
-        android:title="LogOut" />
+        android:orderInCategory="3"
+        android:title="LogOut"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menuHome"
+        android:orderInCategory="4"
+        android:title="Home"
+        app:showAsAction="never" />
+
 </menu>
