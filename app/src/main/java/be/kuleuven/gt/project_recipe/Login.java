@@ -40,8 +40,8 @@ public class Login extends AppCompatActivity {
         username = txtUsername.getText().toString();
         password = txtPassword.getText().toString();
 
-        if(username.equals("liam") || username.equals("matteo")){
-            if(password.equals("12345")){
+        if(username.equals("liam") || username.equals("X")){
+            if(password.equals("X")){
                 Intent intent2 = new Intent(this, MainActivity.class);
                 startActivity(intent2);
                 finish();
@@ -57,6 +57,7 @@ public class Login extends AppCompatActivity {
             txtUsername.setHint("Username Incorrect");
             txtPassword.setHint("Enter Password");
         }
+
 
     }
 
