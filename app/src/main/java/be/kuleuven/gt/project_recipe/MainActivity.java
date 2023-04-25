@@ -47,8 +47,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(menuOption);
                 return true;
             case R.id.menuHelp:
+                menuOption = new Intent(this, Help.class);
+                startActivity(menuOption);
                 return true;
             case R.id.menuLogout:
+                menuOption = new Intent(this, Login.class);
+                startActivity(menuOption);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
