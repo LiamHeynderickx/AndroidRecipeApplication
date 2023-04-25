@@ -19,8 +19,9 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/menuHome"
-        android:orderInCategory="4"
+        android:orderInCategory="0"
         android:title="Home"
-        app:showAsAction="never" />
+        android:visible="true"
+        app:showAsAction="always" />
 
 </menu>
