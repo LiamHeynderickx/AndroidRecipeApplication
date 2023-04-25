@@ -1,6 +1,5 @@
 package be.kuleuven.gt.project_recipe;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,12 +8,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class SearchRecipes extends AppCompatActivity {
+public class Settings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_recipes);
+        setContentView(R.layout.activity_settings);
     }
 
     @Override //copy to each new activity
@@ -42,15 +41,14 @@ public class SearchRecipes extends AppCompatActivity {
                 menuOption = new Intent(this, Login.class);
                 startActivity(menuOption);
                 finish();
+                return true;
             case R.id.menuHome:
                 menuOption = new Intent(this, MainActivity.class);
                 startActivity(menuOption);
                 finish();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
 
 }
