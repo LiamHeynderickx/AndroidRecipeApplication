@@ -1,40 +1,19 @@
 package be.kuleuven.gt.project_recipe;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 
-
-public class MainActivity extends AppCompatActivity {
-
-    private ImageButton btnSearchRecipe;
-    private ImageButton btnFavorites;
-    private ImageButton btnRecents;
-    private ImageButton btnAddRecipe;
-
-
-
+public class AddRecipe extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        btnSearchRecipe = (ImageButton) findViewById(R.id.btnSearchRecipes);
-        btnFavorites = (ImageButton) findViewById(R.id.btnFavorites);
-        btnRecents = (ImageButton) findViewById(R.id.btnRecents);
-        btnAddRecipe = (ImageButton) findViewById(R.id.btnAddRecipe);
+        setContentView(R.layout.activity_add_recipe);
     }
 
     @Override //copy to each new activity
@@ -62,40 +41,13 @@ public class MainActivity extends AppCompatActivity {
                 menuOption = new Intent(this, Login.class);
                 startActivity(menuOption);
                 finish();
-                return true;
             case R.id.menuHome:
                 menuOption = new Intent(this, MainActivity.class);
                 startActivity(menuOption);
                 finish();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
-    public void onBtnSearchRecipes_Clicked(View Caller){
-
-        Intent intent = new Intent(this, SearchRecipes.class);
-        startActivity(intent);
-        finish();
-
-    }
-
-    public void onBtnFavorites_clicked(View Caller){
-        Intent intent = new Intent(this, Favorites.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void onBtnRecents_clicked(View Caller){
-        Intent intent = new Intent(this, Recents.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void onBtnAddRecipe_clicked(View Caller){
-        Intent intent = new Intent(this, AddRecipe.class);
-        startActivity(intent);
-        finish();
-    }
-
 }
