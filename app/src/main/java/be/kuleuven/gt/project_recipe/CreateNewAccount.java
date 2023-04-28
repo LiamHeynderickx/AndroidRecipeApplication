@@ -2,6 +2,7 @@ package be.kuleuven.gt.project_recipe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ public class CreateNewAccount extends AppCompatActivity {
     private static final String QUEUE_URL = "https://studev.groept.be/api/a22pt409/GetEverything";
     private String Que_URL = "https://studev.groept.be/api/a22pt409/insert/";
     private Button btnCreateAccount;
+    private Button getBtnContinue;
 //    private ConstraintLayout constraintlayout;
     private Button btnContinue;
     private TextView lblAccountCreated;
@@ -68,6 +70,7 @@ public class CreateNewAccount extends AppCompatActivity {
         txtPassword = (TextView) findViewById(R.id.txtNewPassword);
         txtConfirmPassword = (TextView) findViewById(R.id.txtConfirmPassword);
         lblNote = (TextView) findViewById(R.id.lblNote);
+        btnContinue = (Button) findViewById(R.id.btnContinue);
 
     }
     private void addUserDetails(){
@@ -123,6 +126,12 @@ public class CreateNewAccount extends AppCompatActivity {
 
         }
 
+    }
+
+    public void onBtnContinue_Clicked(){
+        Intent intent2 = new Intent(this, MainActivity.class);
+        startActivity(intent2);
+        finish();
     }
 
 

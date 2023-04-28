@@ -105,6 +105,7 @@
         android:id="@+id/btnContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onBtnContinue_Clicked"
         android:text="Continue"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
