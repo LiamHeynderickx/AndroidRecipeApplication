@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity {
         finish();
 
     }
-    private static final String QUEUE_URL = "https://studev.groept.be/api/a22pt415/All_Data";
+    private static final String QUEUE_URL = "https://studev.groept.be/api/a22pt409/GetEverything";
 
 
     private void retrieveLoginData(){
@@ -102,6 +102,8 @@ public class Login extends AppCompatActivity {
         //Check details: (need to integrate databease)
         username = txtUsername.getText().toString();
         password = txtPassword.getText().toString();
+        boolean correctUsername = false;
+        int index = 0;
         for(int i=0;i< listPasswords.size();i++)
         {
             if(username.equals(listUsernames.get(i)) ){
@@ -113,18 +115,19 @@ public class Login extends AppCompatActivity {
                 else{
                     txtPassword.setText("");
                     txtPassword.setHint("Password Incorrect");
+                    correctUsername=true;
+                    index = i;
+
                 }
             }
-            else{
-                txtUsername.setText("");
-                txtPassword.setText("");
-                txtUsername.setHint("Username Incorrect");
-                txtPassword.setHint("Enter Password");
-            }
-
         }
-
-
+        if(correctUsername==false)
+        {
+            txtUsername.setText("");
+            txtPassword.setText("");
+            txtUsername.setHint("Username Incorrect");
+            txtPassword.setHint("Enter Password");
+        }
     }
 
 }
