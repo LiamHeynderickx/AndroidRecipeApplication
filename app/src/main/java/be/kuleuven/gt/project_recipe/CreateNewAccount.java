@@ -70,7 +70,7 @@ public class CreateNewAccount extends AppCompatActivity {
         lblNote = (TextView) findViewById(R.id.lblNote);
 
     }
-    private void requestCoffeeOrderqueue(){
+    private void addUserDetails(){
         Que_URL += getUsername() + "/"+getPassword();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest queueRequest = new JsonArrayRequest(
@@ -119,11 +119,7 @@ public class CreateNewAccount extends AppCompatActivity {
             txtConfirmPassword.setVisibility(View.GONE);
             lblNote.setVisibility(View.GONE);
 
-            requestCoffeeOrderqueue();
-
-
-
-
+            addUserDetails();
 
         }
 
