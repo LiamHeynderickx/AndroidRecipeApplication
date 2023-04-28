@@ -70,7 +70,6 @@ public class CreateNewAccount extends AppCompatActivity {
         txtPassword = (TextView) findViewById(R.id.txtNewPassword);
         txtConfirmPassword = (TextView) findViewById(R.id.txtConfirmPassword);
         lblNote = (TextView) findViewById(R.id.lblNote);
-        btnContinue = (Button) findViewById(R.id.btnContinue);
 
     }
     private void addUserDetails(){
@@ -128,7 +127,7 @@ public class CreateNewAccount extends AppCompatActivity {
 
     }
 
-    public void onBtnContinue_Clicked(){
+    public void onBtnContinue_Clicked(View Caller){
         Intent intent2 = new Intent(this, MainActivity.class);
         startActivity(intent2);
         finish();
