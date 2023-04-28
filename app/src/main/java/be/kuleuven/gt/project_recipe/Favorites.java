@@ -19,7 +19,7 @@ public class Favorites extends AppCompatActivity {
     @Override //copy to each new activity
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = new MenuInflater(this);
-        inflater.inflate(R.menu.menu_main_screen, menu);
+        inflater.inflate(R.menu.menue_search_screen, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
