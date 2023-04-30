@@ -1,0 +1,950 @@
+Salt
+Sugar
+Flour
+Baking powder
+Baking soda
+Butter
+Eggs
+Milk
+Vanilla extract
+Cinnamon
+Nutmeg
+Cocoa powder
+Chocolate chips
+Brown sugar
+Powdered sugar
+Olive oil
+Vegetable oil
+Canola oil
+Honey
+Molasses
+Cornstarch
+Cornmeal
+Yeast
+Garlic
+Onion
+Basil
+Oregano
+Thyme
+Rosemary
+Sage
+Bay leaves
+Parsley
+Cilantro
+Dill
+Mint
+Lemon juice
+Lime juice
+Orange juice
+Grapefruit juice
+Pineapple juice
+Tomato sauce
+Tomato paste
+Ketchup
+Mustard
+Mayonnaise
+Worcestershire sauce
+Soy sauce
+Hot sauce
+BBQ sauce
+Vinegar
+Red wine vinegar
+White wine vinegar
+Apple cider vinegar
+Rice vinegar
+Fish sauce
+Chicken broth
+Beef broth
+Vegetable broth
+Coconut milk
+Condensed milk
+Evaporated milk
+Whipping cream
+Heavy cream
+Half and half
+Cream cheese
+Sour cream
+Yogurt
+Buttermilk
+Ricotta cheese
+Cottage cheese
+Parmesan cheese
+Cheddar cheese
+Mozzarella cheese
+Feta cheese
+Blue cheese
+Gouda cheese
+Brie cheese
+Camembert cheese
+Swiss cheese
+Pepper jack cheese
+American cheese
+Provolone cheese
+Gruyere cheese
+Monterey Jack cheese
+Colby cheese
+Mascarpone cheese
+Bread crumbs
+Panko bread crumbs
+Almond flour
+Coconut flour
+Corn flour
+Cake flour
+All-purpose flour
+Semolina flour
+Whole wheat flour
+Rye flour
+Buckwheat flour
+Quinoa flour
+Chickpea flour
+Oat flour
+White rice
+Brown rice
+Wild rice
+Jasmine rice
+Basmati rice
+Arborio rice
+Couscous
+Quinoa
+Barley
+Bulgur
+Polenta
+Grits
+Steel-cut oats
+Rolled oats
+Instant oats
+Granola
+Cornmeal
+Cornstarch
+Potato starch
+Tapioca starch
+Arrowroot starch
+Brown sugar
+White sugar
+Powdered sugar
+Turbinado sugar
+Demerara sugar
+Maple syrup
+Agave nectar
+Stevia
+Splenda
+Honey
+Molasses
+Corn syrup
+High fructose corn syrup
+Brown rice syrup
+Barbecue rub
+Cajun seasoning
+Cayenne pepper
+Paprika
+Chili powder
+Black pepper
+White pepper
+Cumin
+Coriander
+Cardamom
+Nutmeg
+Ginger
+Cloves
+Allspice
+Mustard seeds
+Poppy seeds
+Sesame seeds
+Sunflower seeds
+Pumpkin seeds
+Chia seeds
+Flax seeds
+Hemp seeds
+Walnuts
+Almonds
+Pecans
+Cashews
+Peanuts
+Macadamia nuts
+Pistachios
+Hazelnuts
+Brazil nuts
+Pine nuts
+Chestnuts
+Raisins
+Currants
+Dried apricots
+Dried cherries
+Dried cranberries
+Dried figs
+Dried prunes
+Dried mangoes
+Dried papayas
+Dried pineapples
+Sun-dried tomatoes
+Olives
+Capers
+Anchovies
+Tuna
+Salmon
+Shrimp
+Crab
+Lobster
+Scallops
+Mussels
+Clams
+Squid
+Octopus
+Beef
+Pork
+Chicken
+Turkey
+Lamb
+Veal
+Duck
+Goose
+Bacon
+Sausage
+Pepperoni
+Salami
+Ham
+Prosciutto
+Chorizo
+Bologna
+Corned beef
+Pastrami
+Meatballs
+Ground beef
+Ground turkey
+Ground pork
+Ground lamb
+Meatloaf mix
+Tofu
+Tempeh
+Seitan
+Soy milk
+Rice milk
+Oat milk
+Almond milk
+Cashew milk
+Coconut water
+Sparkling water
+Soda water
+Cola
+Lemon-lime soda
+Orange soda
+Root beer
+Ginger ale
+Club soda
+Tonic water
+Energy drinks
+Iced tea
+Lemonade
+Limeade
+Fruit juice
+Vegetable juice
+Herbal tea
+Black tea
+Green tea
+White tea
+Oolong tea
+Pu-erh tea
+Matcha tea
+Chamomile tea
+Peppermint tea
+Earl Grey tea
+Red wine
+White wine
+Champagne
+Brandy
+Cognac
+Rum
+Tequila
+Gin
+Vodka
+Whiskey
+Bourbon
+Sherry
+Vermouth
+Sake
+Mirin
+Rice vinegar
+Balsamic vinegar
+Apple cider vinegar
+Red wine vinegar
+White wine vinegar
+Soy sauce
+Teriyaki sauce
+Worcestershire sauce
+Fish sauce
+Oyster sauce
+Hoisin sauce
+Sriracha sauce
+Tabasco sauce
+Buffalo sauce
+Barbecue sauce
+Ketchup
+Mustard
+Mayonnaise
+Ranch dressing
+Blue cheese dressing
+Caesar dressing
+Italian dressing
+Honey mustard dressing
+Tahini
+Hummus
+Guacamole
+Salsa
+Pesto
+Chimichurri
+Hollandaise sauce
+Bechamel sauce
+Tomato sauce
+Alfredo sauce
+Marinara sauce
+Szechuan sauce
+Peanut butter
+Nutella
+Honey
+Maple syrup
+Agave nectar
+Molasses
+Brown sugar
+White sugar
+Powdered sugar
+Stevia
+Splenda
+Coconut oil
+Olive oil
+Vegetable oil
+Canola oil
+Sunflower oil
+Sesame oil
+Peanut oil
+Butter
+Margarine
+Shortening
+Lard
+Cream cheese
+Cottage cheese
+Ricotta cheese
+Cheddar cheese
+Mozzarella cheese
+Parmesan cheese
+Feta cheese
+Gouda cheese
+Swiss cheese
+Provolone cheese
+Blue cheese
+Cream
+Sour cream
+Yogurt
+Ice cream
+Gelato
+Sorbet
+Whipped cream
+Almonds
+Cashews
+Pistachios
+Walnuts
+Pecans
+Hazelnuts
+Peanuts
+Macadamia nuts
+Brazil nuts
+Pine nuts
+Sunflower seeds
+Pumpkin seeds
+Flax seeds
+Chia seeds
+Sesame seeds
+Poppy seeds
+Cinnamon
+Nutmeg
+Allspice
+Cloves
+Cardamom
+Ginger
+Garlic
+Onion
+Shallots
+Scallions
+Chives
+Parsley
+Cilantro
+Basil
+Thyme
+Rosemary
+Sage
+Oregano
+Bay leaves
+Dill
+Mint
+Lemon zest
+Lime zest
+Orange zest
+Lemon juice
+Lime juice
+Orange juice
+Grapefruit juice
+Cranberry juice
+Pineapple juice
+Apple juice
+Tomato juice
+Clam juice
+Chicken broth
+Beef broth
+Vegetable broth
+Fish stock
+Chicken stock
+Beef stock
+Wine vinegar
+Rice vinegar
+Malt vinegar
+Tarragon vinegar
+Raspberry vinegar
+Strawberry vinegar
+Blackberry vinegar
+Cranberry vinegar
+Lemon balm
+Bergamot
+Mint leaves
+Lavender
+Rose petals
+Hibiscus flowers
+Chamomile
+Lemongrass
+Ginger root
+Turmeric
+Sage leaves
+Juniper berries
+Bay leaves
+Angelica root
+Coriander seeds
+Anise seeds
+Cumin seeds
+Fennel seeds
+Mustard seeds
+Paprika
+Cayenne pepper
+Chili powder
+Curry powder
+Garam masala
+Turmeric powder
+Saffron
+Smoked paprika
+Onion powder
+Garlic powder
+Celery seed
+Caraway seed
+Poppy seed
+Carom seeds
+Clove powder
+Fenugreek seeds
+Nigella seeds
+All-purpose flour
+Whole wheat flour
+Cake flour
+Bread flour
+Pastry flour
+Cornstarch
+Tapioca starch
+Potato starch
+Rice flour
+Semolina flour
+Buckwheat flour
+Coconut flour
+Almond flour
+Baking powder
+Baking soda
+Yeast
+Cornmeal
+Rolled oats
+Steel-cut oats
+Quinoa
+Couscous
+Bulgur
+Farro
+Barley
+Rice
+Arborio rice
+Jasmine rice
+Basmati rice
+Wild rice
+Black rice
+Red rice
+Brown rice
+White rice
+Pasta
+Spaghetti
+Linguine
+Fettuccine
+Angel hair pasta
+Penne
+Rigatoni
+Farfalle
+Lasagna noodles
+Ramen noodles
+Udon noodles
+Soba noodles
+Vermicelli
+Rice noodles
+Miso paste
+Tofu
+Tempeh
+Seitan
+Quorn
+Lentils
+Chickpeas
+Kidney beans
+Black beans
+Cannellini beans
+Pinto beans
+Lima beans
+Navy beans
+Split peas
+Beef tenderloin
+Sirloin steak
+Ribeye steak
+New York strip steak
+Flank steak
+Skirt steak
+Ground beef
+Ground turkey
+Ground pork
+Pork chops
+Pork tenderloin
+Pork belly
+Ham
+Bacon
+Prosciutto
+Chicken breasts
+Chicken thighs
+Chicken wings
+Chicken legs
+Whole chicken
+Ground chicken
+Duck breasts
+Duck legs
+Goose breasts
+Goose legs
+Turkey breast
+Turkey legs
+Lamb chops
+Rack of lamb
+Leg of lamb
+Ground lamb
+Veal chops
+Veal shanks
+Venison loin
+Venison chops
+Rabbit meat
+Quail
+Escargot
+Lobster
+Shrimp
+Crab
+Clams
+Mussels
+Oysters
+Squid
+Octopus
+Calamari
+Salmon fillet
+Trout fillet
+Tuna steak
+Swordfish steak
+Tilapia fillet
+Catfish fillet
+Mahi mahi fillet
+Cod fillet
+Halibut fillet
+Anchovies
+Sardines
+Smoked salmon
+Caviar
+Eggs
+Milk
+Heavy cream
+Half-and-half
+Buttermilk
+Sour cream
+Cream cheese
+Mascarpone cheese
+Ricotta cheese
+Cottage cheese
+Cheddar cheese
+Mozzarella cheese
+Parmesan cheese
+Swiss cheese
+Brie cheese
+Gouda cheese
+Blue cheese
+Feta cheese
+Goat cheese
+Creamy peanut butter
+Crunchy peanut butter
+Almond butter
+Cashew butter
+Hazelnut spread
+Nutella
+Jam
+Jelly
+Honey
+Maple syrup
+Agave nectar
+Molasses
+Brown sugar
+White sugar
+Powdered sugar
+Granulated sugar
+Corn syrup
+High fructose corn syrup
+Sweetened condensed milk
+Evaporated milk
+Coconut milk
+Soy milk
+Almond milk
+Cashew milk
+Flaxseed oil
+Canola oil
+Olive oil
+Peanut oil
+Sesame oil
+Vegetable oil
+Avocado oil
+Coconut oil
+Butter
+Ghee
+Margarine
+Shortening
+Mayonnaise
+Mustard
+Ketchup
+BBQ sauce
+Soy sauce
+Worcestershire sauce
+Fish sauce
+Teriyaki sauce
+Hoisin sauce
+Sriracha sauce
+Hot sauce
+Salsa
+Guacamole
+Hummus
+Pesto
+Tapenade
+Chimichurri sauce
+Harissa paste
+Tahini
+Wasabi paste
+Breadcrumbs
+Panko breadcrumbs
+Flour
+Cornmeal
+Cornstarch
+Rolled oats
+Bread flour
+Cake flour
+All-purpose flour
+Self-rising flour
+Yeast
+Baking powder
+Baking soda
+Salt
+Black pepper
+White pepper
+Cayenne pepper
+Paprika
+Smoked paprika
+Cumin
+Coriander
+Turmeric
+Ginger
+Garlic powder
+Onion powder
+Cinnamon
+Nutmeg
+Cloves
+Bay leaves
+Thyme
+Rosemary
+Sage
+Oregano
+Basil
+Parsley
+Mint
+Dill
+Tarragon
+Lemon juice
+Lime juice
+Orange juice
+Apple cider vinegar
+Red wine vinegar
+White wine vinegar
+Rice vinegar
+Balsamic vinegar
+White vinegar
+Worcestershire sauce
+Soy sauce
+Fish sauce
+Hoisin sauce
+Mustard
+Dijon mustard
+Yellow mustard
+Whole grain mustard
+Pickles
+Olives
+Capers
+Sun-dried tomatoes
+Anchovies
+Canned tomatoes
+Tomato paste
+Tomato sauce
+Chicken broth
+Beef broth
+Vegetable broth
+Clam juice
+Red miso paste
+White miso paste
+Mirin
+Rice wine
+Sherry
+Red wine
+White wine
+Champagne vinegar
+Red chili flakes
+Aleppo pepper
+Ras el hanout
+Za'atar
+Garam masala
+Cardamom pods
+Saffron
+Smoked sea salt
+Flaky sea salt
+Pink Himalayan salt
+Black garlic
+White truffle oil
+Black truffle oil
+Smoked salmon
+Caviar
+Lobster
+Shrimp
+Scallops
+Mussels
+Clams
+Squid
+Octopus
+Crab
+Cod
+Salmon
+Tuna
+Swordfish
+Mahi-mahi
+Tilapia
+Catfish
+Anchovy fillets
+Tofu
+Tempeh
+Seitan
+Kimchi
+Sauerkraut
+Pickled ginger
+Kombu
+Wakame
+Nori
+Shiitake mushrooms
+Portobello mushrooms
+Cremini mushrooms
+Button mushrooms
+Morel mushrooms
+Chanterelle mushrooms
+Oyster mushrooms
+Enoki mushrooms
+Truffle mushrooms
+Porcini mushrooms
+Coconut milk
+Coconut cream
+Cashews
+Almonds
+Pistachios
+Pecans
+Hazelnuts
+Walnuts
+Macadamia nuts
+Pine nuts
+Sesame seeds
+Chia seeds
+Flax seeds
+Sunflower seeds
+Pumpkin seeds
+Hemp seeds
+Poppy seeds
+Ground chicken
+Ground beef
+Ground pork
+Ground lamb
+Ground turkey
+Ground veal
+Ground bison
+Ground venison
+Beef jerky
+Turkey jerky
+Dried apricots
+Dried figs
+Dried cherries
+Dried cranberries
+Raisins
+Prunes
+Dates
+Currants
+Crystallized ginger
+Candied citrus peel
+Marzipan
+Maple syrup
+Honey
+Tahini
+Harissa paste
+Pomegranate molasses
+Preserved lemons
+Tamarind paste
+Worcestershire sauce
+Fish sauce
+Hoisin sauce
+Sambal oelek
+Sriracha sauce
+Tomato paste
+Canned tomatoes
+Tomato sauce
+Tomato puree
+Green bell peppers
+Red bell peppers
+Yellow bell peppers
+Orange bell peppers
+Purple eggplant
+Zucchini
+Yellow squash
+Butternut squash
+Acorn squash
+Spaghetti squash
+Delicata squash
+Kabocha squash
+Hubbard squash
+Fennel bulb
+Kohlrabi
+Jicama
+Artichokes
+Celeriac
+Jerusalem artichokes
+Parsnips
+Rutabagas
+Turnips
+Radishes
+Daikon radish
+Watermelon radish
+Black radish
+Beets
+Carrots
+Sweet potatoes
+Yams
+Red potatoes
+Fingerling potatoes
+Baby potatoes
+Yukon gold potatoes
+Russet potatoes
+Celery root
+Asparagus
+Broccoli
+Cauliflower
+Brussels sprouts
+Green beans
+Wax beans
+Snow peas
+Sugar snap peas
+Edamame
+Corn
+Baby corn
+Lima beans
+Chickpeas
+Black beans
+Kidney beans
+Cannellini beans
+Navy beans
+Pinto beans
+Lentils
+Split peas
+Farro
+Quinoa
+Barley
+Brown rice
+White rice
+Wild rice
+Bulgur
+Couscous
+Grits
+Polenta
+Cornmeal
+All-purpose flour
+Whole wheat flour
+Bread flour
+Cake flour
+Almond flour
+Coconut flour
+Corn flour
+Chickpea flour
+Rice flour
+Semolina flour
+Buckwheat flour
+Masa harina
+Baking powder
+Baking soda
+Yeast
+Cream of tartar
+Cornstarch
+Arrowroot powder
+Xanthan gum
+Basil
+Thyme
+Rosemary
+Sage
+Oregano
+Bay leaves
+Cilantro
+Parsley
+Dill
+Mint
+Chives
+Scallions
+Shallots
+Garlic powder
+Onion powder
+Paprika
+Smoked paprika
+Cayenne pepper
+Red pepper flakes
+Cumin
+Coriander
+Cardamom
+Turmeric
+Ginger
+Mustard powder
+Nutmeg
+Allspice
+Cinnamon
+Cloves
+Fennel seeds
+Caraway seeds
+Poppy seeds
+Sesame seeds
+Flax seeds
+Chia seeds
+Hemp seeds
+Sunflower seeds
+Pumpkin seeds
+Walnuts
+Almonds
+Pecans
+Cashews
+Hazelnuts
+Pine nuts
+Macadamia nuts
+Pistachios
+Peanuts
+Tahini
+Sunflower butter
+Almond butter
