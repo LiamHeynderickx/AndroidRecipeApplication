@@ -1,3 +1,5 @@
+package be.kuleuven.gt.project_recipe;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.io.File;
@@ -5,6 +7,7 @@ import java.util.Scanner;
 
 public class Ingredients {
     public ArrayList<String> ingredientsList = new ArrayList<>();
+
     public void populateList() throws FileNotFoundException {
         try {
                     // Create a new File object with the path to the file
