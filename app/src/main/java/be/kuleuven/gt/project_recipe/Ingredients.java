@@ -8,7 +8,11 @@ import java.util.Scanner;
 public class Ingredients {
     public ArrayList<String> ingredientsList = new ArrayList<>();
 
-    public void populateList() throws FileNotFoundException {
+    public Ingredients(){
+        populateList();
+    }
+
+    public void populateList()  {
         try {
                     // Create a new File object with the path to the file
                     File file = new File("ingredients.txt");

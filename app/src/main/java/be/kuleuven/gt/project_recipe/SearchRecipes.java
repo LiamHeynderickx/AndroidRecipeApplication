@@ -16,9 +16,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class SearchRecipes extends AppCompatActivity {
-    private ArrayList<String> listIngredients = new ArrayList<>();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +30,6 @@ public class SearchRecipes extends AppCompatActivity {
         inflater.inflate(R.menu.menue_search_screen, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-
     private Intent menuOption; // copy to each activity
     @Override // copy to each activity
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -61,27 +56,9 @@ public class SearchRecipes extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    public void defineButtonIngValues() throws FileNotFoundException { //instatiation of array list must move with ing
-        Ingredients ingredients = new Ingredients();
-        ingredients.populateList();
-        listIngredients=ingredients.getIngredientsList();
 
-    }
-    public ArrayList<String> filterArray() //for ingredients search
-    {
-        EditText ingredientText = (EditText) findViewById(R.id.editIngredient);
-        String ingredientWritten = ingredientText.getText().toString();
 
-        String filter = ingredientWritten;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return listIngredients.stream()
-                    .filter(listIngredients -> listIngredients.startsWith(filter))
-                    .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
-        }
-        else{
-            return null;
-        }
-    }
+
 
 
 

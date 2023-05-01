@@ -60,29 +60,29 @@
         app:layout_constraintStart_toStartOf="@+id/btnFavorites" />
 
     <ImageButton
-        android:id="@+id/btnRecents"
+        android:id="@+id/btnSearchByIngredients"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:contentDescription="recents"
-        android:onClick="onBtnRecents_clicked"
+        android:onClick="onBtnSearchByIngredients_clicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnFavorites"
         app:srcCompat="@drawable/salad" />
 
     <TextView
-        android:id="@+id/lblRecents"
+        android:id="@+id/lblSearchByIngredients"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Recents"
+        android:text="SearchByIngredients"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/btnRecents"
-        app:layout_constraintEnd_toEndOf="@+id/btnRecents"
-        app:layout_constraintStart_toStartOf="@+id/btnRecents" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnSearchByIngredients"
+        app:layout_constraintEnd_toEndOf="@+id/btnSearchByIngredients"
+        app:layout_constraintStart_toStartOf="@+id/btnSearchByIngredients" />
 
     <ImageButton
         android:id="@+id/btnAddRecipe"
@@ -95,7 +95,7 @@
         android:onClick="onBtnAddRecipe_clicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRecents"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearchByIngredients"
         app:srcCompat="@drawable/tapas" />
 
     <TextView

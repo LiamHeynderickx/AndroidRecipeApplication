@@ -1,18 +1,13 @@
 package be.kuleuven.gt.project_recipe;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 
@@ -20,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnSearchRecipe;
     private ImageButton btnFavorites;
-    private ImageButton btnRecents;
+    private ImageButton btnSearchByIngredients;
     private ImageButton btnAddRecipe;
 
 
@@ -33,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnSearchRecipe = (ImageButton) findViewById(R.id.btnSearchRecipes);
         btnFavorites = (ImageButton) findViewById(R.id.btnFavorites);
-        btnRecents = (ImageButton) findViewById(R.id.btnRecents);
+        btnSearchByIngredients = (ImageButton) findViewById(R.id.btnSearchByIngredients);
         btnAddRecipe = (ImageButton) findViewById(R.id.btnAddRecipe);
     }
 
@@ -86,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onBtnRecents_clicked(View Caller){
-        Intent intent = new Intent(this, Recents.class);
+    public void onBtnSearchByIngredients_clicked(View Caller){
+        Intent intent = new Intent(this, SearchByIngredients.class);
         startActivity(intent);
         finish();
     }

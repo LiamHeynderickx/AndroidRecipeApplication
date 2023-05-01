@@ -7,88 +7,53 @@
     tools:context=".SearchRecipes">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSearchByName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:text="Search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtRecipeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Recipe Name"
         android:inputType="text"
         android:scaleX="1.1"
         android:scaleY="1.1"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="164dp"
         android:layout_height="94dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="130dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rbtnIsVegetarian"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleX="1.1"
             android:scaleY="1.1"
-            android:text="RadioButton" />
+            android:text="Vegetarian" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rbtnIsVegan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleX="1.1"
             android:scaleY="1.1"
-            android:text="RadioButton" />
+            android:text="vegan" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="113dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="180dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editIngredient" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="192dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="192dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-    <EditText
-        android:id="@+id/editIngredient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Ingredient"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 </androidx.constraintlayout.widget.ConstraintLayout>
