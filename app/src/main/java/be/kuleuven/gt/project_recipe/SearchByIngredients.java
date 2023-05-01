@@ -1,6 +1,7 @@
 package be.kuleuven.gt.project_recipe;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
 
 import android.content.Intent;
 import android.os.Build;
@@ -9,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -49,10 +52,14 @@ public class SearchByIngredients extends AppCompatActivity {
         Chip chip = new Chip(this);
         chip.setText(newIngredient);
         chip.setCloseIconVisible(true);
+        chip.setId(ViewCompat.generateViewId());
 
         chipGroup.addView(chip);
 
     }
+
+
+
 
 
 
