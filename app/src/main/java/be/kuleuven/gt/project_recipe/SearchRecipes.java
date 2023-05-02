@@ -17,10 +17,20 @@ import java.util.ArrayList;
 
 public class SearchRecipes extends AppCompatActivity {
 
+    private ArrayList<String> tempRecipeList = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_recipes);
+
+        tempRecipeList.add("pasta");
+        tempRecipeList.add("rice");
+        tempRecipeList.add("chicken pasta");
+        tempRecipeList.add("tomato pasta");
+        tempRecipeList.add("pie");
+        tempRecipeList.add("cake");
 
     }
 

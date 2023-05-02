@@ -22,7 +22,7 @@ import com.google.android.material.chip.ChipGroup;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class SearchByIngredients extends AppCompatActivity {
+public class SearchByIngredients extends AppCompatActivity implements View.OnClickListener {
 
 
     private ArrayList<String> listIngredients = new ArrayList<>();
@@ -49,12 +49,16 @@ public class SearchByIngredients extends AppCompatActivity {
 
         newIngredient = txtNewIngredient.getText().toString();
 
-        Chip chip = new Chip(this);
-        chip.setText(newIngredient);
-        chip.setCloseIconVisible(true);
-        chip.setId(ViewCompat.generateViewId());
+        if(!newIngredient.isEmpty()){
+            Chip chip = new Chip(this);
+            chip.setText(newIngredient);
+            chip.setCloseIconVisible(true);
+            chip.setId(ViewCompat.generateViewId());
+            chip.setOnClickListener(this);
+            chipGroup.addView(chip);
+            txtNewIngredient.setText("");
+        }
 
-        chipGroup.addView(chip);
 
     }
 
@@ -117,6 +121,12 @@ public class SearchByIngredients extends AppCompatActivity {
         else{
             return null;
         }
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        chipGroup.removeView(v);
     }
 
 
