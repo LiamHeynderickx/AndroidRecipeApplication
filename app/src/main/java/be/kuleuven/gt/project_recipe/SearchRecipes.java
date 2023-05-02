@@ -2,22 +2,29 @@ package be.kuleuven.gt.project_recipe;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class SearchRecipes extends AppCompatActivity {
 
-    private ArrayList<String> tempRecipeList = new ArrayList<>();
+    private ArrayList<RecipeInformation> tempRecipeList = new ArrayList<>();
+    private TextView lblRecipeName;
+    private RecyclerView recyclerView;
 
 
     @Override
@@ -25,14 +32,43 @@ public class SearchRecipes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_recipes);
 
-        tempRecipeList.add("pasta");
-        tempRecipeList.add("rice");
-        tempRecipeList.add("chicken pasta");
-        tempRecipeList.add("tomato pasta");
-        tempRecipeList.add("pie");
-        tempRecipeList.add("cake");
+        tempRecipeList.add(new RecipeInformation("pasta"));
+        tempRecipeList.add(new RecipeInformation("rice"));
+        tempRecipeList.add(new RecipeInformation("soup"));
+        tempRecipeList.add(new RecipeInformation("pie"));
+        tempRecipeList.add(new RecipeInformation("burger"));
+        tempRecipeList.add(new RecipeInformation("salad"));
+        tempRecipeList.add(new RecipeInformation("wrap"));
+        tempRecipeList.add(new RecipeInformation("steak"));
+        tempRecipeList.add(new RecipeInformation("burger"));
+        tempRecipeList.add(new RecipeInformation("burger"));
+        tempRecipeList.add(new RecipeInformation("burger"));
+        tempRecipeList.add(new RecipeInformation("burger"));
+        tempRecipeList.add(new RecipeInformation("burger"));
+        tempRecipeList.add(new RecipeInformation("burger"));
+        tempRecipeList.add(new RecipeInformation("burger"));
+        tempRecipeList.add(new RecipeInformation("burger"));
+        tempRecipeList.add(new RecipeInformation("burger"));
+
+
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerViewSearchRecipes);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
     }
+
+
+    public void onBtnSearchByName_Clicked(View caller){
+
+            recyclerView.setAdapter(new MyAdapter(getApplicationContext(),tempRecipeList));
+
+//            Log.d("SEARCH BUTTON SELECTED", "onBtnSearchByName_Clicked: "+tempRecipeList.get(count).getRecipeName());
+
+    }
+
+
 
     @Override //copy to each new activity
     public boolean onCreateOptionsMenu(Menu menu){
