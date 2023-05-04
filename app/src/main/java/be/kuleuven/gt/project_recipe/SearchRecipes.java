@@ -52,29 +52,6 @@ public class SearchRecipes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_recipes);
 
-//        tempRecipeList.add(new RecipeInformation("pasta"));
-//        tempRecipeList.add(new RecipeInformation("rice"));
-//        tempRecipeList.add(new RecipeInformation("soup"));
-//        tempRecipeList.add(new RecipeInformation("pie"));
-//        tempRecipeList.add(new RecipeInformation("burger"));
-//        tempRecipeList.add(new RecipeInformation("salad"));
-//        tempRecipeList.add(new RecipeInformation("wrap"));
-//        tempRecipeList.add(new RecipeInformation("steak"));
-//        tempRecipeList.add(new RecipeInformation("burger"));
-//        tempRecipeList.add(new RecipeInformation("burger"));
-//        tempRecipeList.add(new RecipeInformation("burger"));
-//        tempRecipeList.add(new RecipeInformation("burger"));
-//        tempRecipeList.add(new RecipeInformation("burger"));
-//        tempRecipeList.add(new RecipeInformation("burger"));
-//        tempRecipeList.add(new RecipeInformation("burger"));
-//        tempRecipeList.add(new RecipeInformation("burger"));
-//        tempRecipeList.add(new RecipeInformation("burger"));
-
-
-//        getRecipes();
-
-
-
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewSearchRecipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         txtRecipeName = (TextView) findViewById(R.id.txtRecipeName);
@@ -85,15 +62,16 @@ public class SearchRecipes extends AppCompatActivity {
 
     public void onBtnSearchByName_Clicked(View caller){
 
+        recyclerView.removeAllViews();
 //        getRecipes();
         ArrayList<RecipeInformation> tempRecipeList = recipeList;
-
 
         recyclerView.setAdapter(new MyAdapter(getApplicationContext(),tempRecipeList));
 
     }
 
     public void onBtnApplySearchParameters_Clicked(View caller){
+        recipeList.clear();
         String recipeName = txtRecipeName.getText().toString();
         getRecipes(recipeName);
     }
