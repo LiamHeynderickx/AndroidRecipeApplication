@@ -4,8 +4,8 @@ public class RecipeInformation {
 
     private String recipeName;
 
-    public RecipeInformation(String recipeName) {
-        this.recipeName = recipeName;
+    public RecipeInformation() {
+
     }
 
     public String getRecipeName() {
