@@ -1,3 +1,11 @@
+
+
+
+
+// NOT USED DUE TO ASYNCHRONOUS REASONS
+
+
+
 package be.kuleuven.gt.project_recipe;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,12 +25,16 @@ import java.util.ArrayList;
 
 public class ApiManager extends AppCompatActivity {
 
+    public ApiManager() {
+    }
 
-    public ArrayList<RecipeInformation> getRecipes() {
+    ArrayList<RecipeInformation> recipeList = new ArrayList<>();
 
-        ArrayList<RecipeInformation> recipeList = new ArrayList<>();
+    public void fetchRecipes(String name) { //apiConnection
 
-        String url = "https://api.spoonacular.com/recipes/search?query=pizza&number=10&apiKey=7387ffbb93ed451ea993a30591711fdc";
+
+
+        String url = "https://api.spoonacular.com/recipes/search?query="+name+"&number=10&apiKey=7387ffbb93ed451ea993a30591711fdc";
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -58,6 +70,10 @@ public class ApiManager extends AppCompatActivity {
         // Add the API request to the request queue
 
         queue.add(jsonObjectRequest);
+    }
+
+    public ArrayList<RecipeInformation> getRecipes(String name){
+        fetchRecipes(name);
         return recipeList;
     }
 

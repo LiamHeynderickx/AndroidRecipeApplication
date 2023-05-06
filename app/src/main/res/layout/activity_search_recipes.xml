@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/rgDiet"
         android:layout_width="164dp"
         android:layout_height="94dp"
         android:layout_marginStart="30dp"
@@ -44,6 +44,7 @@
             android:id="@+id/rbtnIsVegetarian"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onRbtnVegetarian_Clicked"
             android:scaleX="1.1"
             android:scaleY="1.1"
             android:text="Vegetarian" />
@@ -52,9 +53,10 @@
             android:id="@+id/rbtnIsVegan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onRbtnVegan_Clicked"
             android:scaleX="1.1"
             android:scaleY="1.1"
-            android:text="vegan" />
+            android:text="Vegan" />
     </RadioGroup>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -67,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/rgDiet"
         tools:itemCount="10" />
 
     <Button

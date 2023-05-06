@@ -14,6 +14,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
 
     Context context;
+
+    OnItemClickListener listener;
     List<RecipeInformation> recipeInformation;
 
     public MyAdapter(Context context, List<RecipeInformation> recipeInformation) {
@@ -38,5 +40,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
     }
 
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
 
 }

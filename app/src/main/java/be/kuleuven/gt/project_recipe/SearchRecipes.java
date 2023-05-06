@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,8 +40,13 @@ public class SearchRecipes extends AppCompatActivity {
     private ArrayList<RecipeInformation> recipeList = new ArrayList<>();
     private ApiManager api = new ApiManager();
 
+    String diet;
+
 
     private TextView txtRecipeName;
+    private RadioGroup rg;
+    private RadioButton rbtnVegetarian;
+    private RadioButton rbtnVegan;
     private RecyclerView recyclerView;
 
     private String API_URL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=7387ffbb93ed451ea993a30591711fdc&";
@@ -55,6 +62,9 @@ public class SearchRecipes extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewSearchRecipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         txtRecipeName = (TextView) findViewById(R.id.txtRecipeName);
+        rg = (RadioGroup) findViewById(R.id.rgDiet);
+        rbtnVegan = (RadioButton) findViewById(R.id.rbtnIsVegan);
+        rbtnVegetarian = (RadioButton) findViewById(R.id.rbtnIsVegetarian);
 
 
     }
@@ -73,8 +83,50 @@ public class SearchRecipes extends AppCompatActivity {
     public void onBtnApplySearchParameters_Clicked(View caller){
         recipeList.clear();
         String recipeName = txtRecipeName.getText().toString();
-        getRecipes(recipeName);
+
+        getRecipes(recipeName, diet);
+//        recipeList = api.getRecipes(recipeName);
     }
+
+    int countVegetarian = 0;
+    public void onRbtnVegetarian_Clicked(View caller){
+        if(countVegetarian == 0){
+            diet = "vegetarian";
+            countVegetarian++;
+            countVegan = 0;
+        }
+        else{
+            rg.clearCheck();
+            diet = "";
+            countVegetarian = 0;
+        }
+    }
+
+    int countVegan = 0;
+    public void onRbtnVegan_Clicked(View caller){
+        if(countVegan == 0){
+            diet = "vegan";
+            countVegan++;
+            countVegetarian = 0;
+        }
+        else{
+            rg.clearCheck();
+            diet = "";
+            countVegan = 0;
+        }
+    }
+
+    MyAdapter.setOnItemClickListener(new OnItemClickListener() {
+        @Override
+        public void onItemClick(int position) {
+            // Get a reference to the data for the clicked item
+            MyData data = myAdapter.getDataList().get(position);
+
+            // Retrieve the data that you need from the item
+            String itemName = data.getName(); // Assuming that MyData has a 'name' field
+            // Do something with the item name
+        }
+    });
 
 
 
@@ -113,41 +165,11 @@ public class SearchRecipes extends AppCompatActivity {
 
 
 
-
-//    public void getRecipeByName() {
-//        String url = API_URL+"query=chicken";
-//
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-//                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-//
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        // Handle the API response
-//                    }
-//                }, new Response.ErrorListener() {
-//
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        // Handle API error
-//                        Toast.makeText(
-//                                SearchRecipes.this,
-//                                "Unable to communicate with the server",
-//                                Toast.LENGTH_LONG).show();
-//                    }
-//                });
-//
-//        // Add the API request to the request queue
-//        RequestQueue queue = Volley.newRequestQueue(this);
-//        queue.add(jsonObjectRequest);
-//    }
-
-
-
-    private void getRecipes(String name) {
+    private void getRecipes(String name, String diet) { //apiConnection
 
 //        ArrayList<RecipeInformation> recipeList = new ArrayList<>();
 
-        String url = "https://api.spoonacular.com/recipes/search?query="+name+"&number=10&apiKey=7387ffbb93ed451ea993a30591711fdc";
+        String url = "https://api.spoonacular.com/recipes/search?query="+name+"&diet="+diet+"&number=10&apiKey=7387ffbb93ed451ea993a30591711fdc";
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
