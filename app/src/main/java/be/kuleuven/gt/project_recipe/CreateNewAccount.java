@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -72,6 +75,21 @@ public class CreateNewAccount extends AppCompatActivity {
         lblNote = (TextView) findViewById(R.id.lblNote);
 
     }
+    @Override //copy to each new activity
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = new MenuInflater(this);
+        inflater.inflate(R.menu.menu_create_account, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    private Intent menuOption; // copy to each activity
+    @Override // copy to each activity
+    public boolean onOptionsItemSelected(MenuItem item) {
+        menuOption = new Intent(this, Login.class);
+        startActivity(menuOption);
+        finish();
+        return true;
+    }
+
     private void addUserDetails(){
         Que_URL += getUsername() + "/"+getPassword();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
