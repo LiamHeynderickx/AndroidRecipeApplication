@@ -3,6 +3,7 @@ package be.kuleuven.gt.project_recipe;
 public class RecipeInformation {
 
     private String recipeName;
+    private String recipeID;
 
     public RecipeInformation() {
 
@@ -16,4 +17,11 @@ public class RecipeInformation {
         this.recipeName = recipeName;
     }
 
+    public String getRecipeID() {
+        return recipeID;
+    }
+
+    public void setRecipeID(String recipeID) {
+        this.recipeID = recipeID;
+    }
 }

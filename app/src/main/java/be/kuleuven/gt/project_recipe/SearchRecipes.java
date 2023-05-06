@@ -1,5 +1,6 @@
 package be.kuleuven.gt.project_recipe;
 
+import androidx.annotation.ContentView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +18,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -43,6 +46,8 @@ public class SearchRecipes extends AppCompatActivity {
     private ApiManager api = new ApiManager();
     private MyAdapter myAdapter = new MyAdapter(this, recipeList);
 
+    private ImageButton btnRecipeSelector;
+
     String diet = "";
 
 
@@ -52,9 +57,11 @@ public class SearchRecipes extends AppCompatActivity {
     private RadioButton rbtnVegan;
     private RecyclerView recyclerView;
 
+    private ImageButton btnSelectedRecipe;
+
     private String API_URL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=7387ffbb93ed451ea993a30591711fdc&";
-    private ArrayList<String> recipeNames= new ArrayList<>();
-    private ArrayList<String> recipeIDs = new ArrayList<>();
+//    private ArrayList<String> recipeNames= new ArrayList<>();
+//    private ArrayList<String> recipeIDs = new ArrayList<>();
 
 
     @Override
@@ -64,10 +71,16 @@ public class SearchRecipes extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewSearchRecipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView.setAdapter(myAdapter);
+
+
         txtRecipeName = (TextView) findViewById(R.id.txtRecipeName);
         rg = (RadioGroup) findViewById(R.id.rgDiet);
         rbtnVegan = (RadioButton) findViewById(R.id.rbtnIsVegan);
         rbtnVegetarian = (RadioButton) findViewById(R.id.rbtnIsVegetarian);
+
+
 
 
     }
@@ -127,6 +140,9 @@ public class SearchRecipes extends AppCompatActivity {
     }
 
 
+    public void onRecyclerViewOptionClicked(View caller){
+
+    }
 
 
 
@@ -185,6 +201,8 @@ public class SearchRecipes extends AppCompatActivity {
                                 // Create a new Recipe object and populate its properties
                                 RecipeInformation recipeInformation = new RecipeInformation();
                                 recipeInformation.setRecipeName(recipeObj.getString("title"));
+                                recipeInformation.setRecipeID(recipeObj.getString("id"));
+//                                Log.d("ID ********** ", recipeInformation.getRecipeID());
 //                                JSONArray ingredientArr = recipeObj.getJSONArray("missedIngredients");
 
                                 // Add the Recipe object to the recipeList ArrayList

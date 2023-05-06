@@ -16,6 +16,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
     Context context;
 
 
+
     List<RecipeInformation> recipeInformation;
 
     public MyAdapter(Context context, List<RecipeInformation> recipeInformation) {
