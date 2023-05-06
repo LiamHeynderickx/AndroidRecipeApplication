@@ -39,6 +39,7 @@ public class SearchRecipes extends AppCompatActivity {
 
     private ArrayList<RecipeInformation> recipeList = new ArrayList<>();
     private ApiManager api = new ApiManager();
+    private MyAdapter myAdapter = new MyAdapter(this, recipeList);
 
     String diet;
 
@@ -116,17 +117,7 @@ public class SearchRecipes extends AppCompatActivity {
         }
     }
 
-    MyAdapter.setOnItemClickListener(new OnItemClickListener() {
-        @Override
-        public void onItemClick(int position) {
-            // Get a reference to the data for the clicked item
-            MyData data = myAdapter.getDataList().get(position);
 
-            // Retrieve the data that you need from the item
-            String itemName = data.getName(); // Assuming that MyData has a 'name' field
-            // Do something with the item name
-        }
-    });
 
 
 
