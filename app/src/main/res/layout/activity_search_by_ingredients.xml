@@ -35,19 +35,46 @@
         android:id="@+id/lblIngredients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="64dp"
         android:text="Ingredients:"
         app:layout_constraintStart_toStartOf="@+id/txtIngredient"
         app:layout_constraintTop_toBottomOf="@+id/txtIngredient" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/cgIngredients"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="332dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewByIngredients"
         app:layout_constraintEnd_toEndOf="@+id/btnAddIngredient"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/lblIngredients"
         app:layout_constraintTop_toBottomOf="@+id/lblIngredients">
 
     </com.google.android.material.chip.ChipGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewByIngredients"
+        android:layout_width="409dp"
+        android:layout_height="460dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cgIngredients" />
+
+    <Button
+        android:id="@+id/onBTNSEARCHBYRECIPE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="12dp"
+        android:onClick="onBtnSearchByIngredient_Clicked"
+        android:text="Search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddIngredient" />
 </androidx.constraintlayout.widget.ConstraintLayout>
