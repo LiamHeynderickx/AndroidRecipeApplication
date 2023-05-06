@@ -42,11 +42,10 @@
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/cgIngredients"
-        android:layout_width="332dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginBottom="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewByIngredients"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/btnAddIngredient"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/lblIngredients"
@@ -56,11 +55,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewByIngredients"
-        android:layout_width="409dp"
-        android:layout_height="460dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -96,10 +96,11 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
             chip.setCloseIconVisible(true);
             chip.setId(ViewCompat.generateViewId());
             chip.setOnClickListener(this);
+            chip.setVisibility(View.VISIBLE);
             chipGroup.addView(chip);
-            txtNewIngredient.setText("");
+
             recipeList.clear();
-            if(fullIngredientsQrl =="" )
+            if(fullIngredientsQrl == "" )
             {
                 fullIngredientsQrl += newIngredient;
             }
@@ -110,6 +111,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
             getRecipesUsingIngredients(fullIngredientsQrl);
         }
+        txtNewIngredient.setText("");
 
 
     }
