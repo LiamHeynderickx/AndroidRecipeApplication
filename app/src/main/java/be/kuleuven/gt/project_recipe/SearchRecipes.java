@@ -40,11 +40,11 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class SearchRecipes extends AppCompatActivity {
+public class SearchRecipes extends AppCompatActivity implements RecyclerViewInterface{
 
     private ArrayList<RecipeInformation> recipeList = new ArrayList<>();
     private ApiManager api = new ApiManager();
-    private MyAdapter myAdapter = new MyAdapter(this, recipeList);
+    private MyAdapter myAdapter = new MyAdapter(this, recipeList, this);
 
     private ImageButton btnRecipeSelector;
 
@@ -99,7 +99,7 @@ public class SearchRecipes extends AppCompatActivity {
 //        getRecipes();
         ArrayList<RecipeInformation> tempRecipeList = recipeList;
 
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),tempRecipeList));
+        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),tempRecipeList, this));
 
     }
 
@@ -137,11 +137,6 @@ public class SearchRecipes extends AppCompatActivity {
             diet = "";
             countVegan = 0;
         }
-    }
-
-
-    public void onRecyclerViewOptionClicked(View caller){
-
     }
 
 
@@ -223,6 +218,19 @@ public class SearchRecipes extends AppCompatActivity {
         // Add the API request to the request queue
 
         queue.add(jsonObjectRequest);
+    }
+
+
+    @Override
+    public void onRecyclerViewItemClick(int position) {
+        //intent for new activity
+        Intent intent = new Intent(this, RecipeDisplayer.class);
+
+        intent.putExtra("ID", recipeList.get(position).getRecipeID());
+        intent.putExtra("NAME", recipeList.get(position).getRecipeName());
+
+        startActivity(intent);
+
     }
 
 

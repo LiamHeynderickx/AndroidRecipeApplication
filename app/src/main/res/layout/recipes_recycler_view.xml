@@ -3,20 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:background="@color/white">
-
-    <ImageButton
-        android:id="@+id/btnRecipeSelector"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="recipeSelector"
-        android:onClick="onRecyclerViewOptionClicked"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/divider_horizontal_bright" />
+    android:layout_height="50dp">
 
     <TextView
         android:id="@+id/lblRecipeName"

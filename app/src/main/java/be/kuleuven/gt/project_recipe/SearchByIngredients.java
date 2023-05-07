@@ -39,13 +39,13 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class SearchByIngredients extends AppCompatActivity implements View.OnClickListener {
+public class SearchByIngredients extends AppCompatActivity implements View.OnClickListener, RecyclerViewInterface {
 
 
     private ArrayList<String> listIngredients = new ArrayList<>();
     private ArrayList<RecipeInformation> recipeList = new ArrayList<>();
     private ApiManager api = new ApiManager();
-    private MyAdapter myAdapter = new MyAdapter(this, recipeList);
+    private MyAdapter myAdapter = new MyAdapter(this, recipeList, this);
 
     private Button btnAdd;
     private ChipGroup chipGroup;
@@ -82,7 +82,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 //        getRecipes();
         ArrayList<RecipeInformation> tempRecipeList = recipeList;
 
-        recyclerView2.setAdapter(new MyAdapter(getApplicationContext(),tempRecipeList));
+        recyclerView2.setAdapter(new MyAdapter(getApplicationContext(),tempRecipeList, this));
 
     }
 
@@ -225,5 +225,8 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
     }
 
 
+    @Override
+    public void onRecyclerViewItemClick(int position) {
 
+    }
 }
