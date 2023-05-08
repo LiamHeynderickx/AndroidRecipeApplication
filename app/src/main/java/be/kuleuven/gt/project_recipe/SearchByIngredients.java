@@ -180,13 +180,18 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
+        String text = ((Chip) v).getText().toString();
+        Log.d("*********************************", text);
         chipGroup.removeView(v);
     }
+
+
     private void getRecipesUsingIngredients(String name) { //apiConnection
 
 //        ArrayList<RecipeInformation> recipeList = new ArrayList<>();
 
-        String url = "https://api.spoonacular.com/recipes/search?ingredients="+name+"&number=10&apiKey=7387ffbb93ed451ea993a30591711fdc";
+        String url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=7387ffbb93ed451ea993a30591711fdc&includeIngredients="+name;
+        Log.d("###############",  url);
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -202,6 +207,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
                                 // Create a new Recipe object and populate its properties
                                 RecipeInformation recipeInformation = new RecipeInformation();
                                 recipeInformation.setRecipeName(recipeObj.getString("title"));
+                                recipeInformation.setRecipeID(recipeObj.getString("id"));
 //                                JSONArray ingredientArr = recipeObj.getJSONArray("missedIngredients");
 
                                 // Add the Recipe object to the recipeList ArrayList
@@ -227,6 +233,13 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onRecyclerViewItemClick(int position) {
+
+        Intent intent = new Intent(this, RecipeDisplayer.class);
+
+        intent.putExtra("ID", recipeList.get(position).getRecipeID());
+        intent.putExtra("NAME", recipeList.get(position).getRecipeName());
+
+        startActivity(intent);
 
     }
 }
