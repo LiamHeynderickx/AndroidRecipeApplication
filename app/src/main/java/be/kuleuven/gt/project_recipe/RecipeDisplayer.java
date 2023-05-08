@@ -33,10 +33,11 @@ public class RecipeDisplayer extends AppCompatActivity {
     private String name;
     private String recipeID;
     private String ingredients;
-    private String steps;
     private ArrayList<String> recipeIngredients = new ArrayList<>();
     private ArrayList<String>recipeQuantities = new ArrayList<>();
     private ArrayList<String>quantitiesUnit = new ArrayList<>();
+
+    private ArrayList<String>recipeSteps = new ArrayList<>();
 
 
     @Override
@@ -48,6 +49,7 @@ public class RecipeDisplayer extends AppCompatActivity {
         name =  getIntent().getStringExtra("NAME");
         //setRecipeSteps(recipeID);
         setIngrdientsNames(recipeID);
+        setRecipeSteps(recipeID);
 
 
 //        try {
@@ -100,14 +102,13 @@ public class RecipeDisplayer extends AppCompatActivity {
 
 
 
-
     private void setRecipeSteps(String ID) { //apiConnection
 
         Log.d("************************************************   ", ID);
 
 //        ArrayList<RecipeInformation> recipeList = new ArrayList<>();
 
-        String url = "https://api.spoonacular.com/recipes/"+ID+"/ingredientWidget.json";
+        String url = "https://api.spoonacular.com/recipes/"+ID+"/analyzedInstructions?apiKey=a97f080d485740608c87a17ef0957691";
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -120,15 +121,9 @@ public class RecipeDisplayer extends AppCompatActivity {
                             for (int i = 0; i < results.length(); i++) {
                                 JSONObject recipeObj = results.getJSONObject(i);
 
-                                // Create a new Recipe object and populate its properties
-                                RecipeInformation recipeInformation = new RecipeInformation();
-//                                recipeInformation.setRecipeName(recipeObj.getString("title"));
-//                                recipeInformation.setRecipeID(recipeObj.getString("id"));
-//                                Log.d("ID ********** ", recipeInformation.getRecipeID());
-//                                JSONArray ingredientArr = recipeObj.getJSONArray("missedIngredients");
+                                String step = recipeObj.getString("number")+":\t"+recipeObj.getString("step")+"\n";
 
-                                ingredients = ingredients+recipeObj.getString("name");
-                                Log.d("ing ********** ", ingredients);
+                                Log.d("step ********** ", step);
 
                             }
                         } catch (JSONException e) {
@@ -149,13 +144,8 @@ public class RecipeDisplayer extends AppCompatActivity {
     }
     private void setIngrdientsNames(String ID) { //apiConnection
 
-       // Log.d("************************************************   ", ID);
 
-//        ArrayList<String> recipeIngredients = new ArrayList<>();
-//        ArrayList<String>recipeQuantities = new ArrayList<>();
-//        ArrayList<String>quantitiesUnit = new ArrayList<>();
-
-        String url = "https://api.spoonacular.com/recipes/"+ID+"/ingredientWidget.json?apiKey=7387ffbb93ed451ea993a30591711fdc";
+        String url = "https://api.spoonacular.com/recipes/"+ID+"/ingredientWidget.json?apiKey=a97f080d485740608c87a17ef0957691";
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -174,7 +164,7 @@ public class RecipeDisplayer extends AppCompatActivity {
                             recipeQuantities.add(String.valueOf(metric.getDouble("value")));
                             quantitiesUnit.add(metric.getString("unit"));
 
-                            Log.d("abc",recipeObj.getString("name") + metric.getString("unit"));
+//                            Log.d("abc",recipeObj.getString("name") + metric.getString("unit"));
 
 
                         }
@@ -193,18 +183,24 @@ public class RecipeDisplayer extends AppCompatActivity {
     public void onBtnIngredients_Clicked(View caller){
         String s= " ";
         lblInformationType.setText("Ingredients:");
-        setIngrdientsNames(recipeID);
         for(int i=0;i<recipeIngredients.size();i++)
         {
             s+= recipeIngredients.get(i)+ ", Quantity = "+recipeQuantities.get(i)+" "+quantitiesUnit.get(i) +"\n";
         }
         txtInformation.setText(s);
-        Log.d("YALLLLLLLLLLLLLAA", s );
+//        Log.d("YALLLLLLLLLLLLLAA", s );
+
 
     }
 
     public void onBtnRecipeSteps_Clicked(View caller){
 
+        String txt = "";
+        lblInformationType.setText("Steps:");
+        for(int loop = 0; loop<recipeSteps.size(); loop++){
+            txt += recipeSteps.get(loop);
+        }
+        txtInformation.setText(txt);
     }
 
 

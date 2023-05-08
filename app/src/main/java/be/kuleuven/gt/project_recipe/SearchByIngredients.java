@@ -205,7 +205,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
 //        ArrayList<RecipeInformation> recipeList = new ArrayList<>();
 
-        String url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=7387ffbb93ed451ea993a30591711fdc&includeIngredients="+name;
+        String url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=a97f080d485740608c87a17ef0957691&includeIngredients="+name;
         Log.d("###############",  url);
         RequestQueue queue = Volley.newRequestQueue(this);
 

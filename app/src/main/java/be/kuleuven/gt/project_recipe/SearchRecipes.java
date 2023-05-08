@@ -180,7 +180,7 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
 
 //        ArrayList<RecipeInformation> recipeList = new ArrayList<>();
 
-        String url = "https://api.spoonacular.com/recipes/search?query="+name+"&diet="+diet+"&number=10&apiKey=7387ffbb93ed451ea993a30591711fdc";
+        String url = "https://api.spoonacular.com/recipes/search?query="+name+"&diet="+diet+"&number=10&apiKey=a97f080d485740608c87a17ef0957691";
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
