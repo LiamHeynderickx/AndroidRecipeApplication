@@ -25,10 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="30dp"
         android:onClick="onBtnAdd_clicked"
         android:text="Add"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/onBTNSEARCHBYRECIPE"
+        app:layout_constraintStart_toStartOf="@+id/onBTNSEARCHBYRECIPE"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

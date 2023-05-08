@@ -90,6 +90,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
         newIngredient = txtNewIngredient.getText().toString();
 
+
         if(!newIngredient.isEmpty()){
             Chip chip = new Chip(this);
             chip.setText(newIngredient);
@@ -99,7 +100,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
             chip.setVisibility(View.VISIBLE);
             chipGroup.addView(chip);
 
-            recipeList.clear();
+
             if(fullIngredientsQrl == "" )
             {
                 fullIngredientsQrl += newIngredient;
@@ -112,6 +113,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
         }
         txtNewIngredient.setText("");
+        recipeList.clear();
         getRecipesUsingIngredients(fullIngredientsQrl);
 
     }
@@ -186,10 +188,15 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
         while(fullIngredientsQrl.contains(nameRemove)){
             fullIngredientsQrl = fullIngredientsQrl.replaceAll(nameRemove, "");
+            if(fullIngredientsQrl.contains(",+")){
+                fullIngredientsQrl = fullIngredientsQrl.replaceAll(",+", "");
+            }
             Log.d("*********************************", fullIngredientsQrl);
         }
 
 
+        recipeList.clear();
+        getRecipesUsingIngredients(fullIngredientsQrl);
         chipGroup.removeView(v);
     }
 
