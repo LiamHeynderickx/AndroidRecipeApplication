@@ -15,6 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -114,22 +115,28 @@ public class RecipeDisplayer extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
                         try {
-                            JSONArray results = response.getJSONArray("results");
-                            for (int i = 0; i < results.length(); i++) {
-                                JSONObject recipeObj = results.getJSONObject(i);
-
-                                String step = recipeObj.getString("number")+":\t"+recipeObj.getString("step")+"\n";
+                            JSONObject results = response.getJSONObject(0);
+                            JSONArray steps = results.getJSONArray("steps");
+                            for(int i =0;i<steps.length();i++)
+                            {
+                                JSONObject getStuff =steps.getJSONObject(i);
+                                String step = getStuff.getString("number")+":\t"+getStuff.getString("step")+"\n";
                                 recipeSteps.add(step);
 
-                                Log.d("step ********** ", step);
+                               // Log.d("step ********** ", step);
 
                             }
+
+
+
+
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -144,7 +151,7 @@ public class RecipeDisplayer extends AppCompatActivity {
 
         // Add the API request to the request queue
 
-        queue.add(jsonObjectRequest);
+        queue.add(jsonArrayRequest);
     }
     private void setIngrdientsNames(String ID) { //apiConnection
 
