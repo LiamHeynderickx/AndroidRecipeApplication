@@ -29,6 +29,7 @@ public class RecipeDisplayer extends AppCompatActivity {
     TextView txtInformation;
 
     private String name;
+    private String recipeID;
     private String ingredients;
     private String steps;
 
@@ -38,9 +39,9 @@ public class RecipeDisplayer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_displayer);
 
-        String recipeID =  getIntent().getStringExtra("ID");
+        recipeID =  getIntent().getStringExtra("ID");
         name =  getIntent().getStringExtra("NAME");
-        setRecipeInformation(recipeID);
+        setRecipeSteps(recipeID);
 
 
 //        try {
@@ -94,7 +95,7 @@ public class RecipeDisplayer extends AppCompatActivity {
 
 
 
-    private void setRecipeInformation(String ID) { //apiConnection
+    private void setRecipeSteps(String ID) { //apiConnection
 
         Log.d("************************************************   ", ID);
 
@@ -145,6 +146,10 @@ public class RecipeDisplayer extends AppCompatActivity {
 
         lblInformationType.setText("Ingredients:");
         txtInformation.setText(ingredients);
+
+    }
+
+    public void onBtnRecipeSteps_Clicked(View caller){
 
     }
 
