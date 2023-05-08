@@ -104,11 +104,14 @@ public class RecipeDisplayer extends AppCompatActivity {
 
     private void setRecipeSteps(String ID) { //apiConnection
 
-        Log.d("************************************************   ", ID);
+//        Log.d("************************************************   ", ID);
 
 //        ArrayList<RecipeInformation> recipeList = new ArrayList<>();
 
         String url = "https://api.spoonacular.com/recipes/"+ID+"/analyzedInstructions?apiKey=a97f080d485740608c87a17ef0957691";
+
+//        Log.d(url, "****************");
+
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -122,6 +125,7 @@ public class RecipeDisplayer extends AppCompatActivity {
                                 JSONObject recipeObj = results.getJSONObject(i);
 
                                 String step = recipeObj.getString("number")+":\t"+recipeObj.getString("step")+"\n";
+                                recipeSteps.add(step);
 
                                 Log.d("step ********** ", step);
 
