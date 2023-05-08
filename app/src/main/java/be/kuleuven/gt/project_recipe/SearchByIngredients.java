@@ -109,10 +109,10 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
                 fullIngredientsQrl += ",+" + newIngredient;
             }
 
-            getRecipesUsingIngredients(fullIngredientsQrl);
+
         }
         txtNewIngredient.setText("");
-
+        getRecipesUsingIngredients(fullIngredientsQrl);
 
     }
 
@@ -180,8 +180,16 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        String text = ((Chip) v).getText().toString();
-        Log.d("*********************************", text);
+        String nameRemove = ((Chip) v).getText().toString();
+
+        Log.d("*********************************", fullIngredientsQrl);
+
+        while(fullIngredientsQrl.contains(nameRemove)){
+            fullIngredientsQrl = fullIngredientsQrl.replaceAll(nameRemove, "");
+            Log.d("*********************************", fullIngredientsQrl);
+        }
+
+
         chipGroup.removeView(v);
     }
 
