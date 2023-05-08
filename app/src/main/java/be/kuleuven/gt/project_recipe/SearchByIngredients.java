@@ -228,6 +228,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
                                 // Add the Recipe object to the recipeList ArrayList
                                 recipeList.add(recipeInformation);
                             }
+                           // myAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

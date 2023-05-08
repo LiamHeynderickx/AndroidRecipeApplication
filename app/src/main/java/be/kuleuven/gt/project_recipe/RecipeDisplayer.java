@@ -22,6 +22,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class RecipeDisplayer extends AppCompatActivity {
 
     TextView lblDisplayRecipeName;
@@ -32,6 +34,9 @@ public class RecipeDisplayer extends AppCompatActivity {
     private String recipeID;
     private String ingredients;
     private String steps;
+    private ArrayList<String> recipeIngredients = new ArrayList<>();
+    private ArrayList<String>recipeQuantities = new ArrayList<>();
+    private ArrayList<String>quantitiesUnit = new ArrayList<>();
 
 
     @Override
@@ -41,7 +46,8 @@ public class RecipeDisplayer extends AppCompatActivity {
 
         recipeID =  getIntent().getStringExtra("ID");
         name =  getIntent().getStringExtra("NAME");
-        setRecipeSteps(recipeID);
+        //setRecipeSteps(recipeID);
+        setIngrdientsNames(recipeID);
 
 
 //        try {
@@ -141,11 +147,59 @@ public class RecipeDisplayer extends AppCompatActivity {
 
         queue.add(jsonObjectRequest);
     }
+    private void setIngrdientsNames(String ID) { //apiConnection
+
+       // Log.d("************************************************   ", ID);
+
+//        ArrayList<String> recipeIngredients = new ArrayList<>();
+//        ArrayList<String>recipeQuantities = new ArrayList<>();
+//        ArrayList<String>quantitiesUnit = new ArrayList<>();
+
+        String url = "https://api.spoonacular.com/recipes/"+ID+"/ingredientWidget.json?apiKey=7387ffbb93ed451ea993a30591711fdc";
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, response -> {
+                    try {
+                        JSONArray results = response.getJSONArray("ingredients");
+
+                        for (int i = 0; i < results.length(); i++) {
+                            JSONObject recipeObj = results.getJSONObject(i);
+
+                            // Create a new Recipe object and populate its properties
+                            recipeIngredients.add(recipeObj.getString("name"));
+                            JSONObject amount = recipeObj.getJSONObject("amount");
+                            JSONObject metric = amount.getJSONObject("metric");
+
+                            recipeQuantities.add(String.valueOf(metric.getDouble("value")));
+                            quantitiesUnit.add(metric.getString("unit"));
+
+                            Log.d("abc",recipeObj.getString("name") + metric.getString("unit"));
+
+
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, error -> {
+                    // Handle API error
+                });
+
+        // Add the API request to the request queue
+
+        queue.add(jsonObjectRequest);
+    }
 
     public void onBtnIngredients_Clicked(View caller){
-
+        String s= " ";
         lblInformationType.setText("Ingredients:");
-        txtInformation.setText(ingredients);
+        setIngrdientsNames(recipeID);
+        for(int i=0;i<recipeIngredients.size();i++)
+        {
+            s+= recipeIngredients.get(i)+ ", Quantity = "+recipeQuantities.get(i)+" "+quantitiesUnit.get(i) +"\n";
+        }
+        txtInformation.setText(s);
+        Log.d("YALLLLLLLLLLLLLAA", s );
 
     }
 
