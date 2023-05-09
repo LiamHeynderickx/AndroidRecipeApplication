@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="be.kuleuven.gt.project_recipe.MainScreen">
+    <item
+        android:id="@+id/btn_ToggleFavorites"
+        android:icon="@android:drawable/btn_star_big_off"
+        android:title="Add To Favorites"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/btn_back"
+        android:title="Back" />
+</menu>
