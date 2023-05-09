@@ -59,6 +59,8 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_ingredients);
+        setTitle("Search By Ingredients");
+
         recyclerView2 = (RecyclerView) findViewById(R.id.recyclerViewByIngredients);
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
         btnAdd = (Button) findViewById(R.id.btnAddIngredient);

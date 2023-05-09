@@ -49,6 +49,7 @@ public class RecipeDisplayer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_displayer);
+        setTitle("Recipe");
 
         recipeID =  getIntent().getStringExtra("ID");
         name =  getIntent().getStringExtra("NAME");

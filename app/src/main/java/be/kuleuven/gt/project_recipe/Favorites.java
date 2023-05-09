@@ -14,6 +14,7 @@ public class Favorites extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+        setTitle("Favorites");
     }
 
     @Override //copy to each new activity
