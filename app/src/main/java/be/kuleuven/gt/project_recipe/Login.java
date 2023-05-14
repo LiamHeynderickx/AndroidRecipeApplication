@@ -45,6 +45,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
         btnCreateNewAccount = (Button) findViewById(R.id.btnCreateNewAccount);
         txtUsername = (TextView) findViewById(R.id.txtUsername);
         txtPassword = (TextView) findViewById(R.id.txtPassword);
@@ -56,6 +57,7 @@ public class Login extends AppCompatActivity {
 
 
         Intent intent = new Intent(this, CreateNewAccount.class);
+        intent.putExtra("listUsernames", listUsernames);
         startActivity(intent);
         finish();
 

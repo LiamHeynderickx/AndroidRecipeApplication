@@ -27,6 +27,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 
 public class CreateNewAccount extends AppCompatActivity {
@@ -49,6 +50,7 @@ public class CreateNewAccount extends AppCompatActivity {
     private String username;
     private String password;
     private String confirmPassword;
+    private ArrayList<String>usernamesFromDatabase = new ArrayList<>();
 
     public String getUsername() {
         return username;
@@ -62,6 +64,8 @@ public class CreateNewAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new_account);
+        Intent intent = getIntent();
+        usernamesFromDatabase= intent.getStringArrayListExtra("listUsernames");
         btnCreateAccount = (Button) findViewById(R.id.btnCreateAccount);
 //        constraintlayout = findViewById(R.id.constraintlayout);
         btnContinue = (Button) findViewById(R.id.btnContinue);
@@ -185,8 +189,20 @@ public class CreateNewAccount extends AppCompatActivity {
         }
 
         //add unique check when database is added
+        boolean uniqueUsername = true;
+        for(int i=0;i<usernamesFromDatabase.size();i++)
+        {
+         if(usernamesFromDatabase.get(i).contains(username))
+         {
+             uniqueUsername = false;
+             txtPassword.setText("");
+             txtPassword.setHint("Username Not unique");
+             txtConfirmPassword.setText("");
 
-        if(speacialCharacters == false && correctLength == true){
+         }
+        }
+
+        if(speacialCharacters == false && correctLength == true && uniqueUsername == true){
             return true;
         }
         else{
