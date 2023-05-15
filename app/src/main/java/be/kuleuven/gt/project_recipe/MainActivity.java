@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnSearchByIngredients;
     private ImageButton btnAddRecipe;
 
+    public String usernamePublic = "";
+
 
 
 
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        setTitle("Home");
+
+        Intent intent = getIntent();
+        usernamePublic = intent.getStringExtra("USERNAME");
 
         btnSearchRecipe = (ImageButton) findViewById(R.id.btnSearchRecipes);
         btnFavorites = (ImageButton) findViewById(R.id.btnFavorites);

@@ -57,6 +57,8 @@ public class RecipeDisplayer extends AppCompatActivity {
         setIngrdientsNames(recipeID);
         setRecipeSteps(recipeID);
 
+//        checkIfFavorite();
+
 
 //        try {
 //            Thread.sleep(2000); // 2 seconds
@@ -71,6 +73,7 @@ public class RecipeDisplayer extends AppCompatActivity {
         lblInformationType = (TextView) findViewById(R.id.lblInformationType);
         txtInformation = (TextView) findViewById(R.id.txtRecipeInformation);
         txtInformation.setMovementMethod(new ScrollingMovementMethod());
+        btnToggleFavorites = (ImageButton) findViewById(R.id.btnToggleFavorites);
 
     }
 
@@ -87,9 +90,6 @@ public class RecipeDisplayer extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.btn_ToggleFavorites:
-                //adds to favorites
-                return true;
             case R.id.btn_back:
                 menuOption = new Intent(this,MainActivity.class);
                 finish();
@@ -124,7 +124,7 @@ public class RecipeDisplayer extends AppCompatActivity {
                             for(int i =0;i<steps.length();i++)
                             {
                                 JSONObject getStuff =steps.getJSONObject(i);
-                                String step = getStuff.getString("number")+":\t"+getStuff.getString("step")+"\n";
+                                String step = getStuff.getString("number")+":\n"+getStuff.getString("step")+"\n\n";
                                 recipeSteps.add(step);
 
                                // Log.d("step ********** ", step);
@@ -210,6 +210,12 @@ public class RecipeDisplayer extends AppCompatActivity {
             txt += recipeSteps.get(loop);
         }
         txtInformation.setText(txt);
+    }
+
+    public void onBtnToggleFavorites_Clicked(View caller){
+
+
+
     }
 
 

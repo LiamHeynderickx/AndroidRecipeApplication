@@ -113,6 +113,7 @@ public class Login extends AppCompatActivity {
                 correctUsername=true;
                 if(password.equals(listPasswords.get(i))){
                     Intent intent2 = new Intent(this, MainActivity.class);
+                    intent2.putExtra("USERNAME", username);
                     startActivity(intent2);
                     finish();
                 }

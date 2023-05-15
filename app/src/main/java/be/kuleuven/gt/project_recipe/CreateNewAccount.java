@@ -131,6 +131,7 @@ public class CreateNewAccount extends AppCompatActivity {
 
         //if all checks are passed
         if(validUsername && validpassword){
+            username = txtUsername.getText().toString();
             btnContinue.setVisibility(View.VISIBLE);
             lblAccountCreated.setVisibility(View.VISIBLE);
 
@@ -151,6 +152,7 @@ public class CreateNewAccount extends AppCompatActivity {
 
     public void onBtnContinue_Clicked(View Caller){
         Intent intent2 = new Intent(this, MainActivity.class);
+        intent2.putExtra("USERNAME", username);
         startActivity(intent2);
         finish();
     }
