@@ -195,8 +195,9 @@ public class CreateNewAccount extends AppCompatActivity {
          if(usernamesFromDatabase.get(i).contains(username))
          {
              uniqueUsername = false;
+             txtUsername.setText("");
+             txtUsername.setHint("Username Not unique");
              txtPassword.setText("");
-             txtPassword.setHint("Username Not unique");
              txtConfirmPassword.setText("");
 
          }
