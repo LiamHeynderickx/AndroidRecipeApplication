@@ -44,6 +44,7 @@ public class RecipeDisplayer extends AppCompatActivity {
     private ArrayList<String>quantitiesUnit = new ArrayList<>();
 
     private ArrayList<String>recipeSteps = new ArrayList<>();
+    private boolean isFav = false;
 
 
     @Override
@@ -217,10 +218,13 @@ public class RecipeDisplayer extends AppCompatActivity {
 
     public void onBtnToggleFavorites_Clicked(View caller){
 
+        if(isFav){
+//            btnToggleFavorites.setBackgroundResource(com.google.android.material.R.drawable.btn_star_big_off);
+        }
+        else{
 
+        }
 
     }
-
-
 
 }

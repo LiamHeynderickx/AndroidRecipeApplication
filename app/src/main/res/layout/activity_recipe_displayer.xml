@@ -71,13 +71,16 @@
 
     <ImageButton
         android:id="@+id/btnToggleFavorites"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="9dp"
         android:contentDescription="Toggle favorites"
         android:onClick="onBtnToggleFavorites_Clicked"
+        app:layout_constraintBottom_toTopOf="@+id/btnSteps"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblDisplayRecipeName"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_off" />
 
