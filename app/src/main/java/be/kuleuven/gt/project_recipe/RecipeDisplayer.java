@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -31,6 +33,8 @@ public class RecipeDisplayer extends AppCompatActivity {
     TextView lblInformationType;
     TextView txtInformation;
 
+    ImageButton btnToggleFavorites;
+
     private String name;
     private String recipeID;
     private String ingredients;
@@ -45,6 +49,7 @@ public class RecipeDisplayer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_displayer);
+        setTitle("Recipe");
 
         recipeID =  getIntent().getStringExtra("ID");
         name =  getIntent().getStringExtra("NAME");
@@ -65,35 +70,28 @@ public class RecipeDisplayer extends AppCompatActivity {
         lblDisplayRecipeName.setText(name);
         lblInformationType = (TextView) findViewById(R.id.lblInformationType);
         txtInformation = (TextView) findViewById(R.id.txtRecipeInformation);
+        txtInformation.setMovementMethod(new ScrollingMovementMethod());
 
     }
 
+
+    private Intent menuOption;
     @Override //copy to each new activity
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = new MenuInflater(this);
-        inflater.inflate(R.menu.menue_search_screen, menu);
+        inflater.inflate(R.menu.menue_recipe_displayer, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    private Intent menuOption; // copy to each activity
+    // copy to each activity
     @Override // copy to each activity
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.menuSettings:
-                menuOption = new Intent(this, Settings.class);
-                startActivity(menuOption);
+            case R.id.btn_ToggleFavorites:
+                //adds to favorites
                 return true;
-            case R.id.menuHelp:
-                menuOption = new Intent(this, Help.class);
-                startActivity(menuOption);
-                return true;
-            case R.id.menuLogout:
-                menuOption = new Intent(this, Login.class);
-                startActivity(menuOption);
-                finish();
-            case R.id.menuHome:
-                menuOption = new Intent(this, MainActivity.class);
-                startActivity(menuOption);
+            case R.id.btn_back:
+                menuOption = new Intent(this,MainActivity.class);
                 finish();
                 return true;
             default:
@@ -192,7 +190,7 @@ public class RecipeDisplayer extends AppCompatActivity {
     }
 
     public void onBtnIngredients_Clicked(View caller){
-        String s= " ";
+        String s= "";
         lblInformationType.setText("Ingredients:");
         for(int i=0;i<recipeIngredients.size();i++)
         {

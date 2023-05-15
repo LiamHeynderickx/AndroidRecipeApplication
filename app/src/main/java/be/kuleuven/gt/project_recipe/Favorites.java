@@ -1,6 +1,8 @@
 package be.kuleuven.gt.project_recipe;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,12 +10,32 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class Favorites extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class Favorites extends AppCompatActivity implements RecyclerViewInterface{
+
+
+    private ArrayList<RecipeInformation> recipeList = new ArrayList<>();
+    private ApiManager api = new ApiManager();
+    private MyAdapter myAdapter = new MyAdapter(this, recipeList, this);
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+        setTitle("Favorites");
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerViewFavorites);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView.setAdapter(myAdapter);
+
+        getFavorites(); //connection to database
+
+
+        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),recipeList, this));
+
     }
 
     @Override //copy to each new activity
@@ -51,4 +73,25 @@ public class Favorites extends AppCompatActivity {
         }
     }
 
+    public void getFavorites(){
+        //connect to database of favorites
+
+        //temporary code:
+        RecipeInformation ri = new RecipeInformation();
+        ri.setRecipeName("Easy Homemade Rice and Beans");
+        ri.setRecipeID("716627");
+        recipeList.add(ri);
+    }
+
+    @Override
+    public void onRecyclerViewItemClick(int position) {
+
+        Intent intent = new Intent(this, RecipeDisplayer.class);
+
+        intent.putExtra("ID", recipeList.get(position).getRecipeID());
+        intent.putExtra("NAME", recipeList.get(position).getRecipeName());
+
+        startActivity(intent);
+
+    }
 }

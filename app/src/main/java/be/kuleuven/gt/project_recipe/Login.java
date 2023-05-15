@@ -110,6 +110,7 @@ public class Login extends AppCompatActivity {
         for(int i=0;i< listPasswords.size();i++)
         {
             if(username.equals(listUsernames.get(i)) ){
+                correctUsername=true;
                 if(password.equals(listPasswords.get(i))){
                     Intent intent2 = new Intent(this, MainActivity.class);
                     startActivity(intent2);
@@ -118,7 +119,6 @@ public class Login extends AppCompatActivity {
                 else{
                     txtPassword.setText("");
                     txtPassword.setHint("Password Incorrect");
-                    correctUsername=true;
                     index = i;
 
                 }
