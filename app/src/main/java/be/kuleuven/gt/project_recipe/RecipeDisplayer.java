@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -28,6 +29,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RecipeDisplayer extends AppCompatActivity {
 
@@ -226,16 +229,19 @@ public class RecipeDisplayer extends AppCompatActivity {
         btnAddToFavorites.setVisibility(View.GONE);
         btnRemoveFromFavorites.setVisibility(View.VISIBLE);
         String Que_URL = "https://studev.groept.be/api/a22pt409/insertFavorites/";
-        Que_URL += username+ "/"+recipeID+"/"+recipeName;
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JsonArrayRequest queueRequest = new JsonArrayRequest(
-                Request.Method.GET,
-                Que_URL,
-                null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
+//        Que_URL += username+ "/"+recipeID+"/"+recipeName;
 
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest submitRequest = new StringRequest(
+                Request.Method.POST,
+                Que_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(
+                                RecipeDisplayer.this,
+                                "Post request executed",
+                                Toast.LENGTH_SHORT).show();
                     }
                 },
                 new Response.ErrorListener() {
@@ -243,12 +249,29 @@ public class RecipeDisplayer extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(
                                 RecipeDisplayer.this,
-                                "Unable to communicate with the server",
+                                "Unable to place the order" + error,
                                 Toast.LENGTH_LONG).show();
                     }
-                });
-        requestQueue.add(queueRequest);
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() {
+                return getPostParameters();
+            }
+        };
+        requestQueue.add(submitRequest);
     }
+
+    private Map<String, String> getPostParameters() {
+
+        Map<String, String> params = new HashMap<>();
+        params.put("username", username);
+        params.put("recipeid", recipeID);
+        params.put("recipename", recipeName);
+
+        return params;
+    }
+
 
     public void onBtnRemoveFromFavorites_Clicked(View caller){
         btnRemoveFromFavorites.setVisibility(View.GONE);
