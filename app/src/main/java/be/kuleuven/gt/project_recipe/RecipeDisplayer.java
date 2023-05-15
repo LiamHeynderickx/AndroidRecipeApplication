@@ -3,6 +3,7 @@ package be.kuleuven.gt.project_recipe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -33,8 +34,8 @@ public class RecipeDisplayer extends AppCompatActivity {
     TextView lblInformationType;
     TextView txtInformation;
 
-    ImageButton btnToggleFavorites;
-
+    ImageButton btnAddToFavorites;
+    ImageButton btnRemoveFromFavorites;
     private String name;
     private String recipeID;
     private String username;
@@ -77,7 +78,8 @@ public class RecipeDisplayer extends AppCompatActivity {
         lblInformationType = (TextView) findViewById(R.id.lblInformationType);
         txtInformation = (TextView) findViewById(R.id.txtRecipeInformation);
         txtInformation.setMovementMethod(new ScrollingMovementMethod());
-        btnToggleFavorites = (ImageButton) findViewById(R.id.btnToggleFavorites);
+        btnAddToFavorites = (ImageButton) findViewById(R.id.btnAddToFavorites);
+//        btnRemoveFromFavorites = (ImageButton) findViewById(R.id.);
 
     }
 
@@ -216,14 +218,9 @@ public class RecipeDisplayer extends AppCompatActivity {
         txtInformation.setText(txt);
     }
 
-    public void onBtnToggleFavorites_Clicked(View caller){
+    public void onBtnAddToFavorites_Clicked(View caller){
 
-        if(isFav){
-//            btnToggleFavorites.setBackgroundResource(com.google.android.material.R.drawable.btn_star_big_off);
-        }
-        else{
 
-        }
 
     }
 

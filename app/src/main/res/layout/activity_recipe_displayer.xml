@@ -14,7 +14,7 @@
         android:text="TextView"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toStartOf="@+id/btnToggleFavorites"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddToFavorites"
         app:layout_constraintStart_toStartOf="@+id/btnIngredients"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,18 +70,25 @@
         />
 
     <ImageButton
-        android:id="@+id/btnToggleFavorites"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:id="@+id/btnAddToFavorites"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="9dp"
         android:contentDescription="Toggle favorites"
         android:onClick="onBtnToggleFavorites_Clicked"
-        app:layout_constraintBottom_toTopOf="@+id/btnSteps"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lblDisplayRecipeName"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_off" />
+
+    <ImageView
+        android:id="@+id/btnRemoveFromFavorites"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
