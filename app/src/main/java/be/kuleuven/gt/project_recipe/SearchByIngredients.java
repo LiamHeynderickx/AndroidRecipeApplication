@@ -53,6 +53,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
     private String newIngredient;
     private RecyclerView recyclerView2;
     private String fullIngredientsQrl="";
+    private String username;
 
 
     @Override
@@ -60,6 +61,8 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_ingredients);
         setTitle("Search By Ingredients");
+        Intent intent = getIntent();
+        username = intent.getStringExtra("USERNAME");
 
         recyclerView2 = (RecyclerView) findViewById(R.id.recyclerViewByIngredients);
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
@@ -256,6 +259,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
         intent.putExtra("ID", recipeList.get(position).getRecipeID());
         intent.putExtra("NAME", recipeList.get(position).getRecipeName());
+        intent.putExtra("USERNAME",username);
 
         startActivity(intent);
 

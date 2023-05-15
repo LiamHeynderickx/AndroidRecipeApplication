@@ -58,6 +58,7 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
     private RecyclerView recyclerView;
 
     private ImageButton btnSelectedRecipe;
+    private String username;
 
     private String API_URL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=7387ffbb93ed451ea993a30591711fdc&";
 //    private ArrayList<String> recipeNames= new ArrayList<>();
@@ -69,6 +70,8 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_recipes);
         setTitle("Search Recipes");
+        Intent intent = getIntent();
+        username = intent.getStringExtra("USERNAME");
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewSearchRecipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -229,6 +232,7 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
 
         intent.putExtra("ID", recipeList.get(position).getRecipeID());
         intent.putExtra("NAME", recipeList.get(position).getRecipeName());
+        intent.putExtra("USERNAME",username);
 
         startActivity(intent);
 

@@ -9,6 +9,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -19,12 +31,16 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
     private ApiManager api = new ApiManager();
     private MyAdapter myAdapter = new MyAdapter(this, recipeList, this);
     private RecyclerView recyclerView;
+    private String username;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
         setTitle("Favorites");
+        Intent intent = getIntent();
+        username = intent.getStringExtra("USERNAME");
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewFavorites);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -77,10 +93,44 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
         //connect to database of favorites
 
         //temporary code:
+
+       // ri.setRecipeName("Easy Homemade Rice and Beans");
+        //ri.setRecipeID("716627");
+        //recipeList.add(ri);
+        String QUEUE_URL = "https://studev.groept.be/api/a22pt409/getFavorites?username=" + username;
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest queueRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                QUEUE_URL,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject curObject = response.getJSONObject(i);
+                                //String Username = curObject.getString("username");
+                                String Password = curObject.getString("recipeID");
+                            }
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(
+                                Favorites.this,
+                                "Unable to communicate with the server",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+        requestQueue.add(queueRequest);
+
+        //temporary code:
         RecipeInformation ri = new RecipeInformation();
-        ri.setRecipeName("Easy Homemade Rice and Beans");
-        ri.setRecipeID("716627");
-        recipeList.add(ri);
+
     }
 
     @Override
@@ -90,8 +140,11 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
 
         intent.putExtra("ID", recipeList.get(position).getRecipeID());
         intent.putExtra("NAME", recipeList.get(position).getRecipeName());
+        intent.putExtra("USERNAME",username);
 
         startActivity(intent);
 
     }
+
+
 }

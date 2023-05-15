@@ -37,6 +37,7 @@ public class RecipeDisplayer extends AppCompatActivity {
 
     private String name;
     private String recipeID;
+    private String username;
     private String ingredients;
     private ArrayList<String> recipeIngredients = new ArrayList<>();
     private ArrayList<String>recipeQuantities = new ArrayList<>();
@@ -50,6 +51,8 @@ public class RecipeDisplayer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_displayer);
         setTitle("Recipe");
+        Intent intent = getIntent();
+        username = intent.getStringExtra("USERNAME");
 
         recipeID =  getIntent().getStringExtra("ID");
         name =  getIntent().getStringExtra("NAME");
@@ -217,6 +220,7 @@ public class RecipeDisplayer extends AppCompatActivity {
 
 
     }
+
 
 
 }

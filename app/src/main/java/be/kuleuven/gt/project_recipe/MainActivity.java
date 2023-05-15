@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnSearchByIngredients;
     private ImageButton btnAddRecipe;
 
-    public String usernamePublic = "";
+
+    private String username;
 
 
 
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 //        setTitle("Home");
 
         Intent intent = getIntent();
-        usernamePublic = intent.getStringExtra("USERNAME");
+        username = intent.getStringExtra("USERNAME");
 
         btnSearchRecipe = (ImageButton) findViewById(R.id.btnSearchRecipes);
         btnFavorites = (ImageButton) findViewById(R.id.btnFavorites);
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBtnSearchRecipes_Clicked(View Caller){
 
         Intent intent = new Intent(this, SearchRecipes.class);
+        intent.putExtra("USERNAME", username);
         startActivity(intent);
         finish();
 
@@ -83,12 +85,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBtnFavorites_clicked(View Caller){
         Intent intent = new Intent(this, Favorites.class);
+        intent.putExtra("USERNAME", username);
         startActivity(intent);
         finish();
     }
 
     public void onBtnSearchByIngredients_clicked(View Caller){
         Intent intent = new Intent(this, SearchByIngredients.class);
+        intent.putExtra("USERNAME", username);
         startActivity(intent);
         finish();
     }
@@ -98,5 +102,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 }
