@@ -225,6 +225,29 @@ public class RecipeDisplayer extends AppCompatActivity {
     public void onBtnAddToFavorites_Clicked(View caller){
         btnAddToFavorites.setVisibility(View.GONE);
         btnRemoveFromFavorites.setVisibility(View.VISIBLE);
+        String Que_URL = "https://studev.groept.be/api/a22pt409/insertFavorites/";
+        Que_URL += username+ "/"+recipeID+"/"+recipeName;
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest queueRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                Que_URL,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(
+                                RecipeDisplayer.this,
+                                "Unable to communicate with the server",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+        requestQueue.add(queueRequest);
     }
 
     public void onBtnRemoveFromFavorites_Clicked(View caller){
