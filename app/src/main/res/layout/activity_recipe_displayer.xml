@@ -76,17 +76,21 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:contentDescription="Toggle favorites"
-        android:onClick="onBtnToggleFavorites_Clicked"
+        android:onClick="onBtnAddToFavorites_Clicked"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_off" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/btnRemoveFromFavorites"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:contentDescription="remove"
+        android:onClick="onBtnRemoveFromFavorites_Clicked"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_on" />

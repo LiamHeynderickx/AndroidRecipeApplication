@@ -103,8 +103,6 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
                             ri.setRecipeName(currRecipeName);
                             ri.setRecipeID(currRecipeID);
                             recipeList.add(ri);
-
-
                         }
                         recyclerView.setAdapter(new MyAdapter(getApplicationContext(),recipeList, this));
 

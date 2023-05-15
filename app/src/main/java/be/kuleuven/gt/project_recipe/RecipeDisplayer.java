@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,7 +37,7 @@ public class RecipeDisplayer extends AppCompatActivity {
 
     ImageButton btnAddToFavorites;
     ImageButton btnRemoveFromFavorites;
-    private String name;
+    private String recipeName;
     private String recipeID;
     private String username;
     private String ingredients;
@@ -45,6 +46,7 @@ public class RecipeDisplayer extends AppCompatActivity {
     private ArrayList<String>quantitiesUnit = new ArrayList<>();
 
     private ArrayList<String>recipeSteps = new ArrayList<>();
+    private ArrayList<String>favoritesIDs = new ArrayList<>();
     private boolean isFav = false;
 
 
@@ -57,10 +59,12 @@ public class RecipeDisplayer extends AppCompatActivity {
         username = intent.getStringExtra("USERNAME");
 
         recipeID =  getIntent().getStringExtra("ID");
-        name =  getIntent().getStringExtra("NAME");
+        recipeName =  getIntent().getStringExtra("NAME");
         //setRecipeSteps(recipeID);
         setIngrdientsNames(recipeID);
         setRecipeSteps(recipeID);
+
+        getFavoritesID();
 
 //        checkIfFavorite();
 
@@ -74,12 +78,12 @@ public class RecipeDisplayer extends AppCompatActivity {
 
 
         lblDisplayRecipeName = (TextView) findViewById(R.id.lblDisplayRecipeName);
-        lblDisplayRecipeName.setText(name);
+        lblDisplayRecipeName.setText(recipeName);
         lblInformationType = (TextView) findViewById(R.id.lblInformationType);
         txtInformation = (TextView) findViewById(R.id.txtRecipeInformation);
         txtInformation.setMovementMethod(new ScrollingMovementMethod());
         btnAddToFavorites = (ImageButton) findViewById(R.id.btnAddToFavorites);
-//        btnRemoveFromFavorites = (ImageButton) findViewById(R.id.);
+        btnRemoveFromFavorites = (ImageButton) findViewById(R.id.btnRemoveFromFavorites);
 
     }
 
@@ -220,8 +224,52 @@ public class RecipeDisplayer extends AppCompatActivity {
 
     public void onBtnAddToFavorites_Clicked(View caller){
 
+    }
 
+    public void onBtnRemoveFromFavorites_Clicked(View caller){
 
     }
+
+    private void getFavoritesID(){
+        //connect to database of favorites
+        String QUEUE_URL = "https://studev.groept.be/api/a22pt409/getFavorites/"+username;
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest queueRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                QUEUE_URL,
+                null,
+                response -> {
+                    try {
+                        for (int i = 0; i < response.length(); i++) {
+                            JSONObject curObject = response.getJSONObject(i);
+                            String currRecipeID = curObject.getString("recipeId");
+                            favoritesIDs.add(currRecipeID);
+                        }
+                        checkIfInFavorites(favoritesIDs);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                },
+                error -> Toast.makeText(
+                        RecipeDisplayer.this,
+                        "Unable to communicate with the server",
+                        Toast.LENGTH_LONG).show());
+        requestQueue.add(queueRequest);
+        //temporary code:
+//        RecipeInformation ri = new RecipeInformation();
+//        ri.setRecipeName("Easy Homemade Rice and Beans");
+//        ri.setRecipeID("716627");
+//        recipeList.add(ri);
+    }
+
+    private void checkIfInFavorites(ArrayList<String> favoritesIDs) {
+        if(favoritesIDs.contains(recipeID)){
+            btnRemoveFromFavorites.setVisibility(View.VISIBLE);
+        }
+        else {
+            btnAddToFavorites.setVisibility(View.VISIBLE);
+        }
+    }
+
 
 }
