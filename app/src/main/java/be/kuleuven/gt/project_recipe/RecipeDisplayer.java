@@ -223,11 +223,13 @@ public class RecipeDisplayer extends AppCompatActivity {
     }
 
     public void onBtnAddToFavorites_Clicked(View caller){
-
+        btnAddToFavorites.setVisibility(View.GONE);
+        btnRemoveFromFavorites.setVisibility(View.VISIBLE);
     }
 
     public void onBtnRemoveFromFavorites_Clicked(View caller){
-
+        btnRemoveFromFavorites.setVisibility(View.GONE);
+        btnAddToFavorites.setVisibility(View.VISIBLE);
     }
 
     private void getFavoritesID(){
