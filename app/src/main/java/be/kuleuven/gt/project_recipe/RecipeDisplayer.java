@@ -244,7 +244,7 @@ public class RecipeDisplayer extends AppCompatActivity {
                     public void onResponse(String response) {
                         Toast.makeText(
                                 RecipeDisplayer.this,
-                                "Post request executed",
+                                "Added to Favorites",
                                 Toast.LENGTH_SHORT).show();
                     }
                 },
@@ -280,6 +280,33 @@ public class RecipeDisplayer extends AppCompatActivity {
     public void onBtnRemoveFromFavorites_Clicked(View caller){
         btnRemoveFromFavorites.setVisibility(View.GONE);
         btnAddToFavorites.setVisibility(View.VISIBLE);
+        String url = "https://studev.groept.be/api/a22pt409/removeFavorites/";
+        url += username + "/"+recipeID;
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest queueRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Toast.makeText(
+                                RecipeDisplayer.this,
+                                "Removed from favorites",
+                                Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(
+                                RecipeDisplayer.this,
+                                "Unable to communicate with the server",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+        requestQueue.add(queueRequest);
+
     }
 
     private void getFavoritesID(){
