@@ -99,20 +99,22 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
 
-
-        recyclerView.removeAllViews();
-//        getRecipes();
-        ArrayList<RecipeInformation> tempRecipeList = recipeList;
-
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),tempRecipeList, this));
-
-    }
-
-    public void onBtnApplySearchParameters_Clicked(View caller){
         recipeList.clear();
         String recipeName = txtRecipeName.getText().toString();
 
         getRecipes(recipeName, diet);
+
+
+//        recyclerView.removeAllViews();
+////        getRecipes();
+//        ArrayList<RecipeInformation> tempRecipeList = recipeList;
+//
+//        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),tempRecipeList, this));
+
+    }
+
+    public void onBtnApplySearchParameters_Clicked(View caller){
+
 //        recipeList = api.getRecipes(recipeName);
     }
 
@@ -208,6 +210,7 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
                                 // Add the Recipe object to the recipeList ArrayList
                                 recipeList.add(recipeInformation);
                             }
+                            recyclerView.setAdapter(new MyAdapter(getApplicationContext(),recipeList, SearchRecipes.this));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

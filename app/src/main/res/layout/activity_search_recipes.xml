@@ -10,12 +10,11 @@
         android:id="@+id/btnSearchByName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="28dp"
         android:onClick="onBtnSearchByName_Clicked"
         android:text="Search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnApplySearchParameters" />
+        app:layout_constraintStart_toEndOf="@+id/txtRecipeName"
+        app:layout_constraintTop_toTopOf="@+id/txtRecipeName" />
 
     <EditText
         android:id="@+id/txtRecipeName"
@@ -71,15 +70,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rgDiet"
         tools:itemCount="10" />
-
-    <Button
-        android:id="@+id/btnApplySearchParameters"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onBtnApplySearchParameters_Clicked"
-        android:text="APPLY"
-        app:layout_constraintEnd_toEndOf="@+id/btnSearchByName"
-        app:layout_constraintStart_toStartOf="@+id/btnSearchByName"
-        app:layout_constraintTop_toTopOf="@+id/txtRecipeName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
