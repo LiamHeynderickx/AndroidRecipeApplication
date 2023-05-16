@@ -3,6 +3,7 @@ package be.kuleuven.gt.project_recipe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -59,7 +60,10 @@ public class RecipeDisplayer extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_displayer);
         setTitle("Recipe");
         Intent intent = getIntent();
-        username = intent.getStringExtra("USERNAME");
+//        username = intent.getStringExtra("USERNAME");
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        username = prefs.getString("USERNAME", "");
+//        Log.d(username, "onCreate: USERNAME #####");
 
         recipeID =  getIntent().getStringExtra("ID");
         recipeName =  getIntent().getStringExtra("NAME");

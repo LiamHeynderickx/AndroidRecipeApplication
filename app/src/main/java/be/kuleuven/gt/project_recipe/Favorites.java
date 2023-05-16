@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,8 +40,8 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
         setTitle("Favorites");
-        Intent intent = getIntent();
-        username = intent.getStringExtra("USERNAME");
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        username = prefs.getString("USERNAME", "");
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewFavorites);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

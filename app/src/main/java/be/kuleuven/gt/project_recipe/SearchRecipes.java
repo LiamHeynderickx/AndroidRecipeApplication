@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -70,8 +71,8 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_recipes);
         setTitle("Search Recipes");
-        Intent intent = getIntent();
-        username = intent.getStringExtra("USERNAME");
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        username = prefs.getString("USERNAME", "");
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewSearchRecipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

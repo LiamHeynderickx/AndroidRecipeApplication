@@ -3,6 +3,7 @@ package be.kuleuven.gt.project_recipe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -37,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
         btnFavorites = (ImageButton) findViewById(R.id.btnFavorites);
         btnSearchByIngredients = (ImageButton) findViewById(R.id.btnSearchByIngredients);
         btnAddRecipe = (ImageButton) findViewById(R.id.btnAddRecipe);
+
+        SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
+        editor.putString("USERNAME", username);
+        editor.apply();
+
     }
 
     @Override //copy to each new activity
