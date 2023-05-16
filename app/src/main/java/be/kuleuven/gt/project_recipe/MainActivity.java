@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnFavorites;
     private ImageButton btnSearchByIngredients;
     private ImageButton btnAddRecipe;
+    private Drawable drawable;
 
 
     private String username;

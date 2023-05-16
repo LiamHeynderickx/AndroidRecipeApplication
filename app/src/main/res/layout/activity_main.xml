@@ -9,7 +9,7 @@
     <ImageButton
         android:id="@+id/btnSearchRecipes"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="160dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
@@ -27,7 +27,10 @@
         android:layout_height="wrap_content"
         android:text="Search Recipes"
         android:textAllCaps="false"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:alpha=".75"
+        android:background="@android:color/background_dark"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btnSearchRecipes"
         app:layout_constraintEnd_toEndOf="@+id/btnSearchRecipes"
@@ -36,7 +39,7 @@
     <ImageButton
         android:id="@+id/btnFavorites"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="160dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
@@ -53,7 +56,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Favorites"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:alpha=".75"
+        android:background="@android:color/background_dark"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btnFavorites"
         app:layout_constraintEnd_toEndOf="@+id/btnFavorites"
@@ -62,7 +68,7 @@
     <ImageButton
         android:id="@+id/btnSearchByIngredients"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="160dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
@@ -78,6 +84,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="SearchByIngredients"
+        android:alpha=".75"
+        android:background="@android:color/background_dark"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btnSearchByIngredients"
@@ -87,7 +96,7 @@
     <ImageButton
         android:id="@+id/btnAddRecipe"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="160dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
@@ -102,20 +111,16 @@
         android:id="@+id/lblAddRecipe"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:alpha=".75"
+        android:background="@android:color/background_dark"
         android:text="Add Recipe"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btnAddRecipe"
         app:layout_constraintEnd_toEndOf="@+id/btnAddRecipe"
         app:layout_constraintStart_toStartOf="@+id/btnAddRecipe" />
 
-    <TextView
-        android:id="@+id/lblProjectRecipeWatermark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Project_Recipe_Ltd"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
