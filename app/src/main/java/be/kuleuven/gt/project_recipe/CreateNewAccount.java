@@ -3,6 +3,7 @@ package be.kuleuven.gt.project_recipe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -152,7 +153,11 @@ public class CreateNewAccount extends AppCompatActivity {
 
     public void onBtnContinue_Clicked(View Caller){
         Intent intent2 = new Intent(this, MainActivity.class);
-        intent2.putExtra("USERNAME", username);
+
+        SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
+        editor.putString("USERNAME", username);
+        editor.apply();
+
         startActivity(intent2);
         finish();
     }

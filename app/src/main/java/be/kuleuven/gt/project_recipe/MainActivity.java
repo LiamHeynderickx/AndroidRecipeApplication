@@ -39,9 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btnSearchByIngredients = (ImageButton) findViewById(R.id.btnSearchByIngredients);
         btnAddRecipe = (ImageButton) findViewById(R.id.btnAddRecipe);
 
-        SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
-        editor.putString("USERNAME", username);
-        editor.apply();
+
 
     }
 

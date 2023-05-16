@@ -3,6 +3,7 @@ package be.kuleuven.gt.project_recipe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -113,7 +114,11 @@ public class Login extends AppCompatActivity {
                 correctUsername=true;
                 if(password.equals(listPasswords.get(i))){
                     Intent intent2 = new Intent(this, MainActivity.class);
-                    intent2.putExtra("USERNAME", username);
+
+                    SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
+                    editor.putString("USERNAME", username);
+                    editor.apply();
+
                     startActivity(intent2);
                     finish();
                 }
