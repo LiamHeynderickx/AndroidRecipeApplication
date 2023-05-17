@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutBackground"
+        android:layout_width="411dp"
+        android:layout_height="424dp"
+        android:alpha=".8"
+        android:background="@drawable/wave_2_"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/lblLogin"
         android:layout_width="wrap_content"
@@ -13,7 +25,9 @@
         android:layout_marginTop="75dp"
         android:text="LOGIN"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,4 +98,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lblLogin"
+        app:layout_constraintEnd_toStartOf="@+id/lblLogin"
+        app:layout_constraintTop_toTopOf="@+id/lblLogin"
+        app:srcCompat="@drawable/__personal_center" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
