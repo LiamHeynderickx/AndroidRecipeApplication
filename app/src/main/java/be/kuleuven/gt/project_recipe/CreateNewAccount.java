@@ -2,6 +2,7 @@ package be.kuleuven.gt.project_recipe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -106,6 +108,11 @@ public class CreateNewAccount extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
 
+                        Toast.makeText(
+                                CreateNewAccount.this,
+                                "Account Created",
+                                Toast.LENGTH_LONG).show();
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -147,6 +154,12 @@ public class CreateNewAccount extends AppCompatActivity {
 
             addUserDetails();
 
+        }
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
 
     }
