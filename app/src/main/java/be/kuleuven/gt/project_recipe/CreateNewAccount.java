@@ -69,6 +69,7 @@ public class CreateNewAccount extends AppCompatActivity {
         setContentView(R.layout.activity_create_new_account);
         Intent intent = getIntent();
         usernamesFromDatabase= intent.getStringArrayListExtra("listUsernames");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btnCreateAccount = (Button) findViewById(R.id.btnCreateAccount);
 //        constraintlayout = findViewById(R.id.constraintlayout);
         btnContinue = (Button) findViewById(R.id.btnContinue);
@@ -91,10 +92,20 @@ public class CreateNewAccount extends AppCompatActivity {
     private Intent menuOption; // copy to each activity
     @Override // copy to each activity
     public boolean onOptionsItemSelected(MenuItem item) {
-        menuOption = new Intent(this, Login.class);
-        startActivity(menuOption);
-        finish();
-        return true;
+        switch (item.getItemId()){
+            case R.id.btn_back:
+                menuOption = new Intent(this, Login.class);
+                startActivity(menuOption);
+                finish();
+                return true;
+            case android.R.id.home: // Handle the back button press
+                menuOption = new Intent(this,Login.class);
+                startActivity(menuOption);
+                //onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void addUserDetails(){

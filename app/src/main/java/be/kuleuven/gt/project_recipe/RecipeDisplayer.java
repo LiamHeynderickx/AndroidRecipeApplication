@@ -64,6 +64,7 @@ public class RecipeDisplayer extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         username = prefs.getString("USERNAME", "");
 //        Log.d(username, "onCreate: USERNAME #####");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recipeID =  getIntent().getStringExtra("ID");
         recipeName =  getIntent().getStringExtra("NAME");

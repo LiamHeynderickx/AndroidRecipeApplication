@@ -1,20 +1,22 @@
 package be.kuleuven.gt.project_recipe;
 
 import androidx.annotation.ContentView;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -60,6 +62,8 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
 
     private ImageButton btnSelectedRecipe;
     private String username;
+    private GestureDetector gestureDetector;
+
 
     private String API_URL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=7387ffbb93ed451ea993a30591711fdc&";
 //    private ArrayList<String> recipeNames= new ArrayList<>();
@@ -73,6 +77,10 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
         setTitle("Search Recipes");
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         username = prefs.getString("USERNAME", "");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewSearchRecipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -89,6 +97,10 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
 
 
     }
+    // Override onOptionsItemSelected to handle the back button press
+
+
+
 
 
     public void onBtnSearchByName_Clicked(View caller){
@@ -159,6 +171,11 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case android.R.id.home: // Handle the back button press
+                menuOption = new Intent(this,MainActivity.class);
+                startActivity(menuOption);
+                //onBackPressed();
+                return true;
             case R.id.menuSettings:
                 menuOption = new Intent(this, Settings.class);
                 startActivity(menuOption);

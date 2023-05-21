@@ -42,6 +42,7 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
         setTitle("Favorites");
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         username = prefs.getString("USERNAME", "");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewFavorites);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -64,6 +65,11 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case android.R.id.home: // Handle the back button press
+                menuOption = new Intent(this,MainActivity.class);
+                startActivity(menuOption);
+                //onBackPressed();
+                return true;
             case R.id.menuSettings:
                 menuOption = new Intent(this, Settings.class);
                 startActivity(menuOption);

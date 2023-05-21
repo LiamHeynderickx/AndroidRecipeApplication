@@ -64,6 +64,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
         setTitle("Search By Ingredients");
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         username = prefs.getString("USERNAME", "");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView2 = (RecyclerView) findViewById(R.id.recyclerViewByIngredients);
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
@@ -140,6 +141,11 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case android.R.id.home: // Handle the back button press
+                menuOption = new Intent(this,MainActivity.class);
+                startActivity(menuOption);
+                //onBackPressed();
+                return true;
             case R.id.menuSettings:
                 menuOption = new Intent(this, Settings.class);
                 startActivity(menuOption);
