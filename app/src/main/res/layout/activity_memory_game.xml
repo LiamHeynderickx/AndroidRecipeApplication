@@ -36,7 +36,8 @@
         android:layout_height="75dp"
         android:layout_marginTop="100dp"
         android:contentDescription="1"
-        android:src="@drawable/button_background"
+        android:scaleType="fitCenter"
+        android:src="@drawable/meat"
         app:layout_constraintEnd_toStartOf="@+id/btnLettuce"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageDisplayer" />
@@ -46,7 +47,8 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:contentDescription="2"
-        android:src="@drawable/button_background"
+        android:scaleType="fitCenter"
+        android:src="@drawable/lettuce"
         app:layout_constraintEnd_toEndOf="@+id/imageDisplayer"
         app:layout_constraintStart_toStartOf="@+id/imageDisplayer"
         app:layout_constraintTop_toTopOf="@+id/btnMeat" />
@@ -56,7 +58,8 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:contentDescription="3"
-        android:src="@drawable/button_background"
+        android:scaleType="fitCenter"
+        android:src="@drawable/rice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnLettuce"
         app:layout_constraintTop_toTopOf="@+id/btnLettuce" />
@@ -67,7 +70,8 @@
         android:layout_height="75dp"
         android:layout_marginTop="50dp"
         android:contentDescription="4"
-        android:src="@drawable/button_background"
+        android:scaleType="fitCenter"
+        android:src="@drawable/tomatocartoon"
         app:layout_constraintEnd_toStartOf="@+id/btnLettuce"
         app:layout_constraintStart_toEndOf="@+id/btnMeat"
         app:layout_constraintTop_toBottomOf="@+id/btnLettuce" />
@@ -78,7 +82,8 @@
         android:layout_height="75dp"
         android:layout_marginTop="50dp"
         android:contentDescription="5"
-        android:src="@drawable/button_background"
+        android:scaleType="fitCenter"
+        android:src="@drawable/pastacartoon"
         app:layout_constraintEnd_toStartOf="@+id/btnRice"
         app:layout_constraintStart_toEndOf="@+id/btnLettuce"
         app:layout_constraintTop_toBottomOf="@+id/btnLettuce" />
@@ -92,4 +97,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblmemoryGame" />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="START"
+        app:layout_constraintEnd_toEndOf="@+id/imageDisplayer"
+        app:layout_constraintStart_toStartOf="@+id/imageDisplayer"
+        app:layout_constraintTop_toBottomOf="@+id/imageDisplayer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
