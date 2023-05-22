@@ -91,23 +91,50 @@ public class memoryGame extends AppCompatActivity {
 
     public void onBtn_Meat_Clicked(View Caller)
     {
-
+        IngredientType meat = new Meat();
+        selectedOrder.add(meat);
+        checkIfEqual();
     }
     public void onBtn_Lettuce_Clicked(View Caller)
     {
-
+        IngredientType lettuce = new Lettuce();
+        selectedOrder.add(lettuce);
+        checkIfEqual();
     }
     public void onBtn_Rice_Clicked(View Caller)
     {
-
+        IngredientType rice = new rice();
+        selectedOrder.add(rice);
+        checkIfEqual();
     }
     public void onBtn_Tomato_Clicked(View Caller)
     {
-
+        IngredientType tomato = new Tomato();
+        selectedOrder.add(tomato);
+        checkIfEqual();
     }
     public void onBtn_Pasta_Clicked(View Caller)
     {
+        IngredientType pasta = new Pasta();
+        selectedOrder.add(pasta);
+        checkIfEqual();
 
     }
+    public void checkIfEqual()
+    {
+        if(ingredientOrder.size()==selectedOrder.size())
+        {
+           if(ingredientOrder.equals(selectedOrder))
+           {
+               //WIN GAME
+           }
+           else {
+               // LOSE GAME
+           }
+        }
+        else
+        {
 
+        }
+    }
 }
