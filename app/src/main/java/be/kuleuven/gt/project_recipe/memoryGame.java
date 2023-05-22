@@ -138,8 +138,6 @@ public class memoryGame extends AppCompatActivity {
         imageDisplayer.setImageResource(imageId);
         Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: " + ingredientOrder.get(i).getId());
 
-
-
     }
 
     private void createRandomArray() {
