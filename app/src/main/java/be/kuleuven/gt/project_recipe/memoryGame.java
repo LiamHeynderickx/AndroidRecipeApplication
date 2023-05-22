@@ -91,6 +91,12 @@ public class memoryGame extends AppCompatActivity {
 
         createRandomArray();
 
+        try {
+            long delayMillis = 1000; // Delay of 1 second
+            Thread.sleep(delayMillis);
+        } catch (InterruptedException e) {
+            // Handle the exception if needed
+        }
 
         displayImageSequence();
 
@@ -98,7 +104,6 @@ public class memoryGame extends AppCompatActivity {
     }
 
     private void displayImageSequence() {
-
 
 
         for(int loop1 = 0; loop1 < ingredientOrder.size(); loop1++){
@@ -112,7 +117,7 @@ public class memoryGame extends AppCompatActivity {
 
             int imageId = ingredientOrder.get(loop1).getImageId();
             imageDisplayer.setImageResource(imageId);
-            Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: ");
+            Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: "+ingredientOrder.get(loop1).getId());
 
         }
 
@@ -192,15 +197,18 @@ public class memoryGame extends AppCompatActivity {
 
         if(ingredientOrder.size()==selectedOrder.size()) {
            for(int loop1 = 0; loop1 < ingredientOrder.size(); loop1++){
-               if(ingredientOrder.get(loop1).getId() != ingredientOrder.get(loop1).getId()){
+               if(ingredientOrder.get(loop1).getId() != selectedOrder.get(loop1).getId()){
                    isEqual = false;
+                   Log.d("XXXXXXXXXXXXXXXXXXXX", "checkIfEqual: FALSE");
                }
            }
            if(isEqual){
                //win
+               Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME WON");
            }
            else{
                //loose
+               Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME LOST");
            }
         }
 
