@@ -42,6 +42,7 @@ public class memoryGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_game);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btnMeat = (ImageButton)findViewById(R.id.btnMeat);
         btnLettuce = (ImageButton)findViewById(R.id.btnLettuce);
         btnRice = (ImageButton)findViewById(R.id.btnRice);
@@ -66,6 +67,11 @@ public class memoryGame extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case android.R.id.home: // Handle the back button press
+                menuOption = new Intent(this,MainActivity.class);
+                startActivity(menuOption);
+                //onBackPressed();
+                return true;
             case R.id.menuSettings:
                 menuOption = new Intent(this, Settings.class);
                 startActivity(menuOption);
