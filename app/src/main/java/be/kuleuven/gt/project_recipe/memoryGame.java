@@ -96,7 +96,7 @@ public class memoryGame extends AppCompatActivity {
         createRandomArray();
 
         try {
-            long delayMillis = 1000; // Delay of 1 second
+            long delayMillis = 500; // Delay of 0.5 second
             Thread.sleep(delayMillis);
         } catch (InterruptedException e) {
             // Handle the exception if needed
@@ -112,21 +112,16 @@ public class memoryGame extends AppCompatActivity {
         for(int loop1 = 0; loop1 < ingredientOrder.size(); loop1++){
             int n = loop1;
             new Handler().postDelayed(() -> changeUi(n), 1000 * loop1);
-//            new Handler().postDelayed(() -> changeUi(-1), 1000*loop1);
         }
 
 
     }
-    private void changeUi(int i)
-    {
-        if(i == -1){
-            imageDisplayer.setImageResource(R.drawable.button_background);
-        }
-        else {
-            int imageId = ingredientOrder.get(i).getImageId();
-            imageDisplayer.setImageResource(imageId);
-            Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: " + ingredientOrder.get(i).getId());
-        }
+    private void changeUi(int i) {
+
+        new Handler().postDelayed(() -> imageDisplayer.setImageResource(R.drawable.button_background), 800);
+        int imageId = ingredientOrder.get(i).getImageId();
+        imageDisplayer.setImageResource(imageId);
+        Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: " + ingredientOrder.get(i).getId());
 
     }
 
