@@ -3,7 +3,6 @@ package be.kuleuven.gt.project_recipe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBtnAddRecipe_clicked(View Caller){
-        Intent intent = new Intent(this, AddRecipe.class);
+        Intent intent = new Intent(this, memoryGame.class);
         startActivity(intent);
         finish();
     }

@@ -17,7 +17,7 @@
             android:name=".RecipeDisplayer"
             android:exported="false" />
         <activity
-            android:name=".AddRecipe"
+            android:name=".memoryGame"
             android:exported="false" />
         <activity
             android:name=".SearchByIngredients"
