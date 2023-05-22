@@ -139,7 +139,7 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
 
         startActivity(intent);
 
-//        finish();
+        finish();
 
     }
 }
