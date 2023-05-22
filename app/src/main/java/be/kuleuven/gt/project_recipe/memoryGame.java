@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -28,6 +29,7 @@ public class memoryGame extends AppCompatActivity {
     private Button btnStart;
     private ImageView imageDisplayer;
     private Handler handler = new Handler();
+    private TextView lblRound;
 
 
     private int round = 3;
@@ -47,7 +49,7 @@ public class memoryGame extends AppCompatActivity {
         btnPasta = (ImageButton)findViewById(R.id.btnPasta);
         btnStart = (Button) findViewById(R.id.btnStart);
         imageDisplayer = (ImageView) findViewById(R.id.imageDisplayer);
-
+        lblRound = (TextView) findViewById(R.id.lblRound);
     }
 
     @Override //copy to each new activity
@@ -100,7 +102,6 @@ public class memoryGame extends AppCompatActivity {
 
         displayImageSequence();
 
-        round++;
     }
 
     private void displayImageSequence() {
@@ -205,6 +206,10 @@ public class memoryGame extends AppCompatActivity {
            if(isEqual){
                //win
                Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME WON");
+               round++;
+               ingredientOrder.clear();
+               imageDisplayer.setImageResource(R.);
+               lblRound.setText("ROUND "+(round-2));
            }
            else{
                //loose

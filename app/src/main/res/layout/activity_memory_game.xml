@@ -113,4 +113,15 @@
         app:layout_constraintEnd_toEndOf="@+id/imageDisplayer"
         app:layout_constraintStart_toStartOf="@+id/imageDisplayer"
         app:layout_constraintTop_toBottomOf="@+id/imageDisplayer" />
+
+    <TextView
+        android:id="@+id/lblRound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ROUND 1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toBottomOf="@+id/imageDisplayer"
+        app:layout_constraintEnd_toEndOf="@+id/imageDisplayer"
+        app:layout_constraintStart_toStartOf="@+id/imageDisplayer"
+        app:layout_constraintTop_toTopOf="@+id/imageDisplayer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
