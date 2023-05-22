@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:alpha=".75"
         android:background="#CE000000"
-        android:text="Add Recipe"
+        android:text="Mini Game"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/white"

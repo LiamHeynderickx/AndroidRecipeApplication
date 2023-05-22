@@ -112,13 +112,21 @@ public class memoryGame extends AppCompatActivity {
         for(int loop1 = 0; loop1 < ingredientOrder.size(); loop1++){
             int n = loop1;
             new Handler().postDelayed(() -> changeUi(n), 1000 * loop1);
+//            new Handler().postDelayed(() -> changeUi(-1), 1000*loop1);
         }
+
+
     }
     private void changeUi(int i)
     {
-        int imageId = ingredientOrder.get(i).getImageId();
-        imageDisplayer.setImageResource(imageId);
-        Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: "+ingredientOrder.get(i).getId());
+        if(i == -1){
+            imageDisplayer.setImageResource(R.drawable.button_background);
+        }
+        else {
+            int imageId = ingredientOrder.get(i).getImageId();
+            imageDisplayer.setImageResource(imageId);
+            Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: " + ingredientOrder.get(i).getId());
+        }
 
     }
 
