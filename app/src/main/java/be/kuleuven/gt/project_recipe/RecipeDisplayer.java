@@ -112,6 +112,11 @@ public class RecipeDisplayer extends AppCompatActivity {
                 menuOption = new Intent(this,MainActivity.class);
                 finish();
                 return true;
+            case android.R.id.home: // Handle the back button press
+                menuOption = new Intent(this,MainActivity.class);
+                finish();
+                //onBackPressed();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
