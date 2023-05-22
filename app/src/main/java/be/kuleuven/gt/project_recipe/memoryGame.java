@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,9 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 public class memoryGame extends AppCompatActivity {
     private ImageButton btnMeat;
@@ -22,8 +26,11 @@ public class memoryGame extends AppCompatActivity {
     private ImageButton btnTomato;
     private ImageButton btnPasta;
     private Button btnStart;
+    private ImageView imageDisplayer;
+    private Handler handler = new Handler();
 
-    private int round = 1;
+
+    private int round = 3;
 
     private ArrayList<IngredientType> ingredientOrder =new ArrayList();
 
@@ -39,6 +46,7 @@ public class memoryGame extends AppCompatActivity {
         btnTomato = (ImageButton)findViewById(R.id.btnTomato);
         btnPasta = (ImageButton)findViewById(R.id.btnPasta);
         btnStart = (Button) findViewById(R.id.btnStart);
+        imageDisplayer = (ImageView) findViewById(R.id.imageDisplayer);
 
     }
 
@@ -77,19 +85,36 @@ public class memoryGame extends AppCompatActivity {
         }
     }
 
-    public void onBtn_StartClicked(){
+    public void onBtn_StartClicked(View Caller){
+
+        btnStart.setVisibility(View.GONE);
 
         createRandomArray();
 
-        displayImageSequence();
 
-        btnStart.setVisibility(View.GONE);
+        displayImageSequence();
 
         round++;
     }
 
     private void displayImageSequence() {
 
+
+
+        for(int loop1 = 0; loop1 < ingredientOrder.size(); loop1++){
+
+            try {
+                long delayMillis = 1000; // Delay of 1 second
+                Thread.sleep(delayMillis);
+            } catch (InterruptedException e) {
+                // Handle the exception if needed
+            }
+
+            int imageId = ingredientOrder.get(loop1).getImageId();
+            imageDisplayer.setImageResource(imageId);
+            Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: ");
+
+        }
 
 
     }
@@ -161,21 +186,23 @@ public class memoryGame extends AppCompatActivity {
         checkIfEqual();
 
     }
-    public void checkIfEqual()
-    {
-        if(ingredientOrder.size()==selectedOrder.size())
-        {
-           if(ingredientOrder.equals(selectedOrder))
-           {
-               //WIN GAME
-           }
-           else {
-               // LOSE GAME
-           }
-        }
-        else
-        {
+    public void checkIfEqual() {
 
+        boolean isEqual = true;
+
+        if(ingredientOrder.size()==selectedOrder.size()) {
+           for(int loop1 = 0; loop1 < ingredientOrder.size(); loop1++){
+               if(ingredientOrder.get(loop1).getId() != ingredientOrder.get(loop1).getId()){
+                   isEqual = false;
+               }
+           }
+           if(isEqual){
+               //win
+           }
+           else{
+               //loose
+           }
         }
+
     }
 }

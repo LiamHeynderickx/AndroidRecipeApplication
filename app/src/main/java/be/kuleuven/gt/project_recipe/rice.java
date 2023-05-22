@@ -2,7 +2,7 @@ package be.kuleuven.gt.project_recipe;
 
 public class rice extends IngredientType {
     private int id=3;
-    private String imageId;
+    private int imageId = R.drawable.rice;
     public rice(){
     }
     @Override
@@ -11,7 +11,7 @@ public class rice extends IngredientType {
     }
 
     @Override
-    public String getImageId() {
+    public int getImageId() {
         return imageId;
     }
 }

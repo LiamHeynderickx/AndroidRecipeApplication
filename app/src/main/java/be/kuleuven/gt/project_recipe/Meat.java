@@ -2,7 +2,7 @@ package be.kuleuven.gt.project_recipe;
 
 public class Meat extends IngredientType{
     private int id=1;
-    private String imageId;
+    private int imageId = R.drawable.meat;
     public Meat(){
     }
     @Override
@@ -11,7 +11,7 @@ public class Meat extends IngredientType{
     }
 
     @Override
-    public String getImageId() {
+    public int getImageId() {
         return imageId;
     }
 }

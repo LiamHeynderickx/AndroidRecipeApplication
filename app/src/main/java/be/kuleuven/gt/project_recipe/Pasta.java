@@ -2,7 +2,7 @@ package be.kuleuven.gt.project_recipe;
 
 public class Pasta extends IngredientType {
     private int id=5;
-    private String imageId;
+    private int imageId = R.drawable.pastacartoon;
     public Pasta(){
     }
     @Override
@@ -11,7 +11,7 @@ public class Pasta extends IngredientType {
     }
 
     @Override
-    public String getImageId() {
+    public int getImageId() {
         return imageId;
     }
 }

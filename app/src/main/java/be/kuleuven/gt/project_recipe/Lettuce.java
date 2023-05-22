@@ -2,7 +2,7 @@ package be.kuleuven.gt.project_recipe;
 
 public class Lettuce extends IngredientType {
     private int id=2;
-    private String imageId;
+    private int imageId = R.drawable.lettuce;
     public Lettuce(){
     }
     @Override
@@ -11,7 +11,7 @@ public class Lettuce extends IngredientType {
     }
 
     @Override
-    public String getImageId() {
+    public int getImageId() {
         return imageId;
     }
 }

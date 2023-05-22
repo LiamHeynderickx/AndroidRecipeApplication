@@ -6,5 +6,5 @@ public abstract class IngredientType {
     public IngredientType(){
     }
     public abstract int getId();
-    public abstract String getImageId();
+    public abstract int getImageId();
 }

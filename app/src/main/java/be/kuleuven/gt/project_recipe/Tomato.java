@@ -2,7 +2,7 @@ package be.kuleuven.gt.project_recipe;
 
 public class Tomato extends IngredientType {
     private int id=4;
-    private String imageId;
+    private int imageId = R.drawable.tomatocartoon;
     public Tomato(){
     }
     @Override
@@ -11,7 +11,7 @@ public class Tomato extends IngredientType {
     }
 
     @Override
-    public String getImageId() {
+    public int getImageId() {
         return imageId;
     }
 }
