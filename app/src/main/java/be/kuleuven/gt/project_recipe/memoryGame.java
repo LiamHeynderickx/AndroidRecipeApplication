@@ -51,12 +51,6 @@ public class memoryGame extends AppCompatActivity {
         imageDisplayer = (ImageView) findViewById(R.id.imageDisplayer);
         lblRound = (TextView) findViewById(R.id.lblRound);
 
-
-        btnMeat.setOnClickListener(null);
-        btnPasta.setOnClickListener(null);
-        btnTomato.setOnClickListener(null);
-        btnLettuce.setOnClickListener(null);
-        btnRice.setOnClickListener(null);
     }
 
     @Override //copy to each new activity
@@ -96,11 +90,6 @@ public class memoryGame extends AppCompatActivity {
 
     public void onBtn_StartClicked(View Caller){
 
-        btnMeat.setOnClickListener(this::onBtn_Meat_Clicked);
-        btnPasta.setOnClickListener(this::onBtn_Pasta_Clicked);
-        btnTomato.setOnClickListener(this::onBtn_Tomato_Clicked);
-        btnLettuce.setOnClickListener(this::onBtn_Lettuce_Clicked);
-        btnRice.setOnClickListener(this::onBtn_Rice_Clicked);
 
         lblRound.setVisibility(View.GONE);
 
