@@ -89,6 +89,8 @@ public class memoryGame extends AppCompatActivity {
 
     public void onBtn_StartClicked(View Caller){
 
+        lblRound.setVisibility(View.GONE);
+
         btnStart.setVisibility(View.GONE);
 
         createRandomArray();
@@ -203,12 +205,22 @@ public class memoryGame extends AppCompatActivity {
                Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME WON");
                round++;
                ingredientOrder.clear();
-
+               selectedOrder.clear();
+               imageDisplayer.setImageResource(R.color.green);
                lblRound.setText("ROUND "+(round-2));
+               lblRound.setVisibility(View.VISIBLE);
+               btnStart.setVisibility(View.VISIBLE);
            }
            else{
                //loose
                Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME LOST");
+               round = 3;
+               ingredientOrder.clear();
+               selectedOrder.clear();
+               imageDisplayer.setImageResource(R.color.red);
+               lblRound.setText("GAME OVER\nRESTART");
+               lblRound.setVisibility(View.VISIBLE);
+               btnStart.setVisibility(View.VISIBLE);
            }
         }
 
