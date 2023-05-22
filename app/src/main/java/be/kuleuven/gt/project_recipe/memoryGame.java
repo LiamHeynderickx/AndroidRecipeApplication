@@ -108,20 +108,15 @@ public class memoryGame extends AppCompatActivity {
 
 
         for(int loop1 = 0; loop1 < ingredientOrder.size(); loop1++){
-
-            try {
-                long delayMillis = 1000; // Delay of 1 second
-                Thread.sleep(delayMillis);
-            } catch (InterruptedException e) {
-                // Handle the exception if needed
-            }
-
-            int imageId = ingredientOrder.get(loop1).getImageId();
-            imageDisplayer.setImageResource(imageId);
-            Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: "+ingredientOrder.get(loop1).getId());
-
+            int n = loop1;
+            new Handler().postDelayed(() -> changeUi(n), 1000 * loop1);
         }
-
+    }
+    private void changeUi(int i)
+    {
+        int imageId = ingredientOrder.get(i).getImageId();
+        imageDisplayer.setImageResource(imageId);
+        Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: "+ingredientOrder.get(i).getId());
 
     }
 
@@ -208,7 +203,7 @@ public class memoryGame extends AppCompatActivity {
                Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME WON");
                round++;
                ingredientOrder.clear();
-               imageDisplayer.setImageResource(R.);
+
                lblRound.setText("ROUND "+(round-2));
            }
            else{
