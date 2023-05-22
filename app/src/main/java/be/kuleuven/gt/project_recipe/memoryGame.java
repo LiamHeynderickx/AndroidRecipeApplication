@@ -10,12 +10,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 public class memoryGame extends AppCompatActivity {
     private ImageButton btnMeat;
     private ImageButton btnLettuce;
     private ImageButton btnRice;
     private ImageButton btnTomato;
     private ImageButton btnPasta;
+
+    private int round = 1;
+
+    private ArrayList<IngredientType> ingredientOrder =new ArrayList();
+
+    private ArrayList<IngredientType> selectedOrder =new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +71,24 @@ public class memoryGame extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    public void onBtn_StartClicked(){
+
+        createRandomArray();
+
+
+
+        round++;
+    }
+
+    private void createRandomArray() {
+
+        for(int loop1 = 0; loop1 < round; loop1++){
+            int random =     (int) Math.random()*(4 - 0 + 1);
+        }
+
+    }
+
     public void onBtn_Meat_Clicked(View Caller)
     {
 
