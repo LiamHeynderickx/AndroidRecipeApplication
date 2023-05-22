@@ -1,12 +1,12 @@
 package be.kuleuven.gt.project_recipe;
 
 public class Tomato extends IngredientType {
-    private String id;
+    private int id=4;
     private String imageId;
     public Tomato(){
     }
     @Override
-    public String getId() {
+    public int getId() {
         return id;
     }
 

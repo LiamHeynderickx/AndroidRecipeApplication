@@ -4,6 +4,6 @@ public abstract class IngredientType {
 
     public IngredientType(){
     }
-    public abstract String getId();
+    public abstract int getId();
     public abstract String getImageId();
 }

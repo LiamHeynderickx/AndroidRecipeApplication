@@ -7,13 +7,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 public class memoryGame extends AppCompatActivity {
+    private ImageButton btnMeat;
+    private ImageButton btnLettuce;
+    private ImageButton btnRice;
+    private ImageButton btnTomato;
+    private ImageButton btnPasta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_game);
+        btnMeat = (ImageButton)findViewById(R.id.btnMeat);
+        btnLettuce = (ImageButton)findViewById(R.id.btnLettuce);
+        btnRice = (ImageButton)findViewById(R.id.btnRice);
+        btnTomato = (ImageButton)findViewById(R.id.btnTomato);
+        btnPasta = (ImageButton)findViewById(R.id.btnPasta);
+
     }
 
     @Override //copy to each new activity
@@ -50,4 +63,25 @@ public class memoryGame extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    public void onBtn_Meat_Clicked(View Caller)
+    {
+
+    }
+    public void onBtn_Lettuce_Clicked(View Caller)
+    {
+
+    }
+    public void onBtn_Rice_Clicked(View Caller)
+    {
+
+    }
+    public void onBtn_Tomato_Clicked(View Caller)
+    {
+
+    }
+    public void onBtn_Pasta_Clicked(View Caller)
+    {
+
+    }
+
 }

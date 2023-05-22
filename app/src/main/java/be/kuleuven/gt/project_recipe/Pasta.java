@@ -1,12 +1,12 @@
 package be.kuleuven.gt.project_recipe;
 
 public class Pasta extends IngredientType {
-    private String id;
+    private int id=5;
     private String imageId;
     public Pasta(){
     }
     @Override
-    public String getId() {
+    public int getId() {
         return id;
     }
 

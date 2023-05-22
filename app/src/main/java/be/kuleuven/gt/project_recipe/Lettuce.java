@@ -1,12 +1,12 @@
 package be.kuleuven.gt.project_recipe;
 
 public class Lettuce extends IngredientType {
-    private String id;
+    private int id=2;
     private String imageId;
     public Lettuce(){
     }
     @Override
-    public String getId() {
+    public int getId() {
         return id;
     }
 
