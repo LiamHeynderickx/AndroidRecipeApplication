@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
@@ -18,7 +17,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 
 public class memoryGame extends AppCompatActivity {
     private ImageButton btnMeat;
@@ -73,7 +71,7 @@ public class memoryGame extends AppCompatActivity {
                 //onBackPressed();
                 return true;
             case R.id.menuSettings:
-                menuOption = new Intent(this, Settings.class);
+                menuOption = new Intent(this, ProgramFlow.class);
                 startActivity(menuOption);
                 return true;
             case R.id.menuHelp:
@@ -107,17 +105,14 @@ public class memoryGame extends AppCompatActivity {
             long delayMillis = 500; // Delay of 0.5 second
             Thread.sleep(delayMillis);
         } catch (InterruptedException e) {
-            // Handle the exception if needed
+
         }
 
         displayImageSequence();
 
-
-
     }
 
     private void displayImageSequence() {
-
 
         for(int loop1 = 0; loop1 < ingredientOrder.size(); loop1++){
             int n = loop1;

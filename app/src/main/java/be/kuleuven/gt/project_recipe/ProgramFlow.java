@@ -8,12 +8,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class Settings extends AppCompatActivity {
+public class ProgramFlow extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_program_flow);
     }
 
     @Override //copy to each new activity
@@ -30,7 +30,7 @@ public class Settings extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.menuSettings:
-                menuOption = new Intent(this, Settings.class);
+                menuOption = new Intent(this, ProgramFlow.class);
                 startActivity(menuOption);
                 return true;
             case R.id.menuHelp:

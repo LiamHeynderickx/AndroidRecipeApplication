@@ -1,7 +1,5 @@
 package be.kuleuven.gt.project_recipe;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,8 +15,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,9 +41,8 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
     private ArrayList<String> listIngredients = new ArrayList<>();
     private ArrayList<RecipeInformation> recipeList = new ArrayList<>();
-    private ApiManager api = new ApiManager();
-    private MyAdapter myAdapter = new MyAdapter(this, recipeList, this);
 
+    private MyAdapter myAdapter = new MyAdapter(this, recipeList, this);
     private Button btnAdd;
     private ChipGroup chipGroup;
     private TextView txtNewIngredient;
@@ -125,11 +120,6 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
     }
 
-
-
-
-
-
     @Override //copy to each new activity
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = new MenuInflater(this);
@@ -147,7 +137,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
                 //onBackPressed();
                 return true;
             case R.id.menuSettings:
-                menuOption = new Intent(this, Settings.class);
+                menuOption = new Intent(this, ProgramFlow.class);
                 startActivity(menuOption);
                 return true;
             case R.id.menuHelp:
@@ -214,8 +204,6 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
 
     private void getRecipesUsingIngredients(String name) { //apiConnection
-
-//        ArrayList<RecipeInformation> recipeList = new ArrayList<>();
 
         String url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=a97f080d485740608c87a17ef0957691&includeIngredients="+name;
         Log.d("###############",  url);

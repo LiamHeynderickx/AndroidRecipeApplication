@@ -1,38 +1,28 @@
 package be.kuleuven.gt.project_recipe;
 
-import androidx.annotation.ContentView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -40,20 +30,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class SearchRecipes extends AppCompatActivity implements RecyclerViewInterface{
 
     private ArrayList<RecipeInformation> recipeList = new ArrayList<>();
-    private ApiManager api = new ApiManager();
     private MyAdapter myAdapter = new MyAdapter(this, recipeList, this);
 
     private ImageButton btnRecipeSelector;
-
     String diet = "";
-
-
     private TextView txtRecipeName;
     private RadioGroup rg;
     private RadioButton rbtnVegetarian;
@@ -62,14 +47,10 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
 
     private ImageButton btnSelectedRecipe;
     private String username;
+
     private GestureDetector gestureDetector;
 
-
     private String API_URL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=7387ffbb93ed451ea993a30591711fdc&";
-//    private ArrayList<String> recipeNames= new ArrayList<>();
-//    private ArrayList<String> recipeIDs = new ArrayList<>();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,25 +60,18 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
         username = prefs.getString("USERNAME", "");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
-
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewSearchRecipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         recyclerView.setAdapter(myAdapter);
-
 
         txtRecipeName = (TextView) findViewById(R.id.txtRecipeName);
         rg = (RadioGroup) findViewById(R.id.rgDiet);
         rbtnVegan = (RadioButton) findViewById(R.id.rbtnIsVegan);
         rbtnVegetarian = (RadioButton) findViewById(R.id.rbtnIsVegetarian);
 
-
-
-
     }
-    // Override onOptionsItemSelected to handle the back button press
+
 
 
 
@@ -116,18 +90,6 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
 
         getRecipes(recipeName, diet);
 
-
-//        recyclerView.removeAllViews();
-////        getRecipes();
-//        ArrayList<RecipeInformation> tempRecipeList = recipeList;
-//
-//        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),tempRecipeList, this));
-
-    }
-
-    public void onBtnApplySearchParameters_Clicked(View caller){
-
-//        recipeList = api.getRecipes(recipeName);
     }
 
     int countVegetarian = 0;
@@ -177,7 +139,7 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
                 //onBackPressed();
                 return true;
             case R.id.menuSettings:
-                menuOption = new Intent(this, Settings.class);
+                menuOption = new Intent(this, ProgramFlow.class);
                 startActivity(menuOption);
                 return true;
             case R.id.menuHelp:
@@ -202,8 +164,6 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
 
     private void getRecipes(String name, String diet) { //apiConnection
 
-//        ArrayList<RecipeInformation> recipeList = new ArrayList<>();
-
         String url = "https://api.spoonacular.com/recipes/search?query="+name+"&diet="+diet+"&number=10&apiKey=a97f080d485740608c87a17ef0957691";
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -217,14 +177,10 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
                             for (int i = 0; i < results.length(); i++) {
                                 JSONObject recipeObj = results.getJSONObject(i);
 
-                                // Create a new Recipe object and populate its properties
                                 RecipeInformation recipeInformation = new RecipeInformation();
                                 recipeInformation.setRecipeName(recipeObj.getString("title"));
                                 recipeInformation.setRecipeID(recipeObj.getString("id"));
-//                                Log.d("ID ********** ", recipeInformation.getRecipeID());
-//                                JSONArray ingredientArr = recipeObj.getJSONArray("missedIngredients");
 
-                                // Add the Recipe object to the recipeList ArrayList
                                 recipeList.add(recipeInformation);
                             }
                             recyclerView.setAdapter(new MyAdapter(getApplicationContext(),recipeList, SearchRecipes.this));
@@ -240,7 +196,6 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
                     }
                 });
 
-        // Add the API request to the request queue
 
         queue.add(jsonObjectRequest);
     }
@@ -248,7 +203,6 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
 
     @Override
     public void onRecyclerViewItemClick(int position) {
-        //intent for new activity
         Intent intent = new Intent(this, RecipeDisplayer.class);
 
         intent.putExtra("ID", recipeList.get(position).getRecipeID());

@@ -60,30 +60,16 @@ public class RecipeDisplayer extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_displayer);
         setTitle("Recipe");
         Intent intent = getIntent();
-//        username = intent.getStringExtra("USERNAME");
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         username = prefs.getString("USERNAME", "");
-//        Log.d(username, "onCreate: USERNAME #####");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recipeID =  getIntent().getStringExtra("ID");
         recipeName =  getIntent().getStringExtra("NAME");
-        //setRecipeSteps(recipeID);
         setIngrdientsNames(recipeID);
         setRecipeSteps(recipeID);
 
         getFavoritesID();
-
-//        checkIfFavorite();
-
-
-//        try {
-//            Thread.sleep(2000); // 2 seconds
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
-
 
         lblDisplayRecipeName = (TextView) findViewById(R.id.lblDisplayRecipeName);
         lblDisplayRecipeName.setText(recipeName);
@@ -122,13 +108,8 @@ public class RecipeDisplayer extends AppCompatActivity {
 
     private void setRecipeSteps(String ID) { //apiConnection
 
-//        Log.d("************************************************   ", ID);
-
-//        ArrayList<RecipeInformation> recipeList = new ArrayList<>();
 
         String url = "https://api.spoonacular.com/recipes/"+ID+"/analyzedInstructions?apiKey=a97f080d485740608c87a17ef0957691";
-
-//        Log.d(url, "****************");
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -145,14 +126,7 @@ public class RecipeDisplayer extends AppCompatActivity {
                                 JSONObject getStuff =steps.getJSONObject(i);
                                 String step = getStuff.getString("number")+":\n"+getStuff.getString("step")+"\n\n";
                                 recipeSteps.add(step);
-
-                               // Log.d("step ********** ", step);
-
                             }
-
-
-
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -162,12 +136,8 @@ public class RecipeDisplayer extends AppCompatActivity {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Handle API error
                     }
                 });
-
-        // Add the API request to the request queue
-
         queue.add(jsonArrayRequest);
     }
     private void setIngrdientsNames(String ID) { //apiConnection
@@ -184,7 +154,6 @@ public class RecipeDisplayer extends AppCompatActivity {
                         for (int i = 0; i < results.length(); i++) {
                             JSONObject recipeObj = results.getJSONObject(i);
 
-                            // Create a new Recipe object and populate its properties
                             recipeIngredients.add(recipeObj.getString("name"));
                             JSONObject amount = recipeObj.getJSONObject("amount");
                             JSONObject metric = amount.getJSONObject("metric");
@@ -192,18 +161,12 @@ public class RecipeDisplayer extends AppCompatActivity {
                             recipeQuantities.add(String.valueOf(metric.getDouble("value")));
                             quantitiesUnit.add(metric.getString("unit"));
 
-//                            Log.d("abc",recipeObj.getString("name") + metric.getString("unit"));
-
-
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }, error -> {
-                    // Handle API error
                 });
-
-        // Add the API request to the request queue
 
         queue.add(jsonObjectRequest);
     }
@@ -216,9 +179,6 @@ public class RecipeDisplayer extends AppCompatActivity {
             s+= recipeIngredients.get(i)+ ", Quantity = "+recipeQuantities.get(i)+" "+quantitiesUnit.get(i) +"\n";
         }
         txtInformation.setText(s);
-//        Log.d("YALLLLLLLLLLLLLAA", s );
-
-
     }
 
     public void onBtnRecipeSteps_Clicked(View caller){
@@ -235,8 +195,6 @@ public class RecipeDisplayer extends AppCompatActivity {
         btnAddToFavorites.setVisibility(View.GONE);
         btnRemoveFromFavorites.setVisibility(View.VISIBLE);
         String Que_URL = "https://studev.groept.be/api/a22pt409/insertFavorites/";
-//        Que_URL += username+ "/"+recipeID+"/"+recipeName;
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         StringRequest submitRequest = new StringRequest(
                 Request.Method.POST,
@@ -336,11 +294,6 @@ public class RecipeDisplayer extends AppCompatActivity {
                         "Unable to communicate with the server",
                         Toast.LENGTH_LONG).show());
         requestQueue.add(queueRequest);
-        //temporary code:
-//        RecipeInformation ri = new RecipeInformation();
-//        ri.setRecipeName("Easy Homemade Rice and Beans");
-//        ri.setRecipeID("716627");
-//        recipeList.add(ri);
     }
 
     private void checkIfInFavorites(ArrayList<String> favoritesIDs) {

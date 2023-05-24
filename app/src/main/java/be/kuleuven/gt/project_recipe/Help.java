@@ -1,6 +1,5 @@
 package be.kuleuven.gt.project_recipe;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -31,7 +30,7 @@ public class Help extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.menuSettings:
-                menuOption = new Intent(this, Settings.class);
+                menuOption = new Intent(this, ProgramFlow.class);
                 startActivity(menuOption);
                 return true;
             case R.id.menuHelp:

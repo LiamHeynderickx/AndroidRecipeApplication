@@ -103,7 +103,6 @@ public class Login extends AppCompatActivity {
 
     public void onBtnLogin_Clicked(View Caller){
 
-        //Check details: (need to integrate databease)
         username = txtUsername.getText().toString();
         password = txtPassword.getText().toString();
         boolean correctUsername = false;

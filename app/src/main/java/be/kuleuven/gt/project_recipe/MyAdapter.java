@@ -56,7 +56,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
 
-//            btnRecipeSelector = itemView.findViewById(R.id.btnRecipeSelector);
             lblRecipeName = itemView.findViewById(R.id.lblRecipeName);
 
             itemView.setOnClickListener(new View.OnClickListener() {

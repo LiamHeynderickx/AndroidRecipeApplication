@@ -38,8 +38,8 @@ public class CreateNewAccount extends AppCompatActivity {
     private static final String QUEUE_URL = "https://studev.groept.be/api/a22pt409/GetEverything";
     private String Que_URL = "https://studev.groept.be/api/a22pt409/insert/";
     private Button btnCreateAccount;
+
     private Button getBtnContinue;
-//    private ConstraintLayout constraintlayout;
     private Button btnContinue;
     private TextView lblAccountCreated;
     private TextView lblCreateNewAccount;
@@ -71,7 +71,6 @@ public class CreateNewAccount extends AppCompatActivity {
         usernamesFromDatabase= intent.getStringArrayListExtra("listUsernames");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btnCreateAccount = (Button) findViewById(R.id.btnCreateAccount);
-//        constraintlayout = findViewById(R.id.constraintlayout);
         btnContinue = (Button) findViewById(R.id.btnContinue);
         lblAccountCreated = (TextView) findViewById(R.id.lblAccountCreated);
         lblCreateNewAccount = (TextView) findViewById(R.id.lblCreateNewAccount);
@@ -98,10 +97,9 @@ public class CreateNewAccount extends AppCompatActivity {
                 startActivity(menuOption);
                 finish();
                 return true;
-            case android.R.id.home: // Handle the back button press
+            case android.R.id.home:
                 menuOption = new Intent(this,Login.class);
                 startActivity(menuOption);
-                //onBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -14,23 +14,14 @@ public class Ingredients {
 
     public void populateList()  {
         try {
-                    // Create a new File object with the path to the file
                     File file = new File("ingredients.txt");
-
-                    // Create a new Scanner object to read from the file
                     Scanner scanner = new Scanner(file);
-
-                    // Read each line of the file
                     while (scanner.hasNextLine()) {
                         String line = scanner.nextLine();
-                        // Do something with the line (e.g. print it)
                        ingredientsList.add(line);
                     }
-
-                    // Close the scanner
                     scanner.close();
                 } catch (FileNotFoundException e) {
-                    // Handle the FileNotFoundException
                     e.printStackTrace();
                 }
             }

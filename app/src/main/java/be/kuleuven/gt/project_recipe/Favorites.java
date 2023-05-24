@@ -14,12 +14,9 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,7 +27,6 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
 
     private ArrayList<RecipeInformation> recipeList = new ArrayList<>();
     private ArrayList<String>recipeIdList = new ArrayList<>();
-    private ApiManager api = new ApiManager();
     private MyAdapter myAdapter = new MyAdapter(this, recipeList, this);
     private RecyclerView recyclerView;
     private String username;
@@ -48,8 +44,6 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
 
         recyclerView.setAdapter(myAdapter);
         getFavorites();
-      //  recyclerView.setAdapter(new MyAdapter(getApplicationContext(),recipeList, this));
-
     }
 
     @Override //copy to each new activity
@@ -71,7 +65,7 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
                 //onBackPressed();
                 return true;
             case R.id.menuSettings:
-                menuOption = new Intent(this, Settings.class);
+                menuOption = new Intent(this, ProgramFlow.class);
                 startActivity(menuOption);
                 return true;
             case R.id.menuHelp:
@@ -122,11 +116,6 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
                         "Unable to communicate with the server",
                         Toast.LENGTH_LONG).show());
         requestQueue.add(queueRequest);
-        //temporary code:
-//        RecipeInformation ri = new RecipeInformation();
-//        ri.setRecipeName("Easy Homemade Rice and Beans");
-//        ri.setRecipeID("716627");
-//        recipeList.add(ri);
     }
 
     @Override
