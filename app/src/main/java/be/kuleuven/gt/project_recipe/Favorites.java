@@ -62,6 +62,7 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
             case android.R.id.home: // Handle the back button press
                 menuOption = new Intent(this,MainActivity.class);
                 startActivity(menuOption);
+                finish();
                 //onBackPressed();
                 return true;
             case R.id.menuSettings:
@@ -125,6 +126,7 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
 
         intent.putExtra("ID", recipeList.get(position).getRecipeID());
         intent.putExtra("NAME", recipeList.get(position).getRecipeName());
+        intent.putExtra("PATH", "FAVORITES");
 
         startActivity(intent);
 

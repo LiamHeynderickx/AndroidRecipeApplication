@@ -208,6 +208,7 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
         intent.putExtra("ID", recipeList.get(position).getRecipeID());
         intent.putExtra("NAME", recipeList.get(position).getRecipeName());
         intent.putExtra("USERNAME",username);
+        intent.putExtra("PATH", "SEARCH");
 
         startActivity(intent);
 

@@ -132,7 +132,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
         switch (item.getItemId()) {
             case android.R.id.home: // Handle the back button press
-                menuOption = new Intent(this,MainActivity.class);
+                menuOption = new Intent(this, MainActivity.class);
                 startActivity(menuOption);
                 //onBackPressed();
                 return true;
@@ -255,6 +255,7 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
         intent.putExtra("ID", recipeList.get(position).getRecipeID());
         intent.putExtra("NAME", recipeList.get(position).getRecipeName());
         intent.putExtra("USERNAME",username);
+        intent.putExtra("PATH", "INGREDIENTS");
 
         startActivity(intent);
 

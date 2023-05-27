@@ -52,6 +52,7 @@ public class RecipeDisplayer extends AppCompatActivity {
     private ArrayList<String>recipeSteps = new ArrayList<>();
     private ArrayList<String>favoritesIDs = new ArrayList<>();
     private boolean isFav = false;
+    private String path;
 
 
     @Override
@@ -60,6 +61,7 @@ public class RecipeDisplayer extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_displayer);
         setTitle("Recipe");
         Intent intent = getIntent();
+        path = intent.getStringExtra("PATH");
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         username = prefs.getString("USERNAME", "");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -95,9 +97,25 @@ public class RecipeDisplayer extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case android.R.id.home: // Handle the back button press
-                menuOption = new Intent(this,Favorites.class);
-                startActivity(menuOption);
-                finish();
+                switch (path){
+                    case "FAVORITES":
+                        menuOption = new Intent(this,Favorites.class);
+                        startActivity(menuOption);
+                        finish();
+                        return true;
+                    case "SEARCH":
+                        menuOption = new Intent(this,SearchRecipes.class);
+                        startActivity(menuOption);
+                        finish();
+                        return true;
+                    case "INGREDIENTS":
+                        menuOption = new Intent(this, SearchByIngredients.class);
+                        startActivity(menuOption);
+                        finish();
+                        return true;
+                    default:
+                        break;
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

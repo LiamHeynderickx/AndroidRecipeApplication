@@ -126,7 +126,6 @@ public class memoryGame extends AppCompatActivity {
         new Handler().postDelayed(() -> imageDisplayer.setImageResource(R.drawable.button_background), 800);
         int imageId = ingredientOrder.get(i).getImageId();
         imageDisplayer.setImageResource(imageId);
-        Log.d("XXXXXXXXXXXXXXXXXXXXXX", "onFinish: " + ingredientOrder.get(i).getId());
 
     }
 
@@ -231,6 +230,25 @@ public class memoryGame extends AppCompatActivity {
                btnStart.setVisibility(View.VISIBLE);
            }
         }
+
+//        if (ingredientOrder.size()<selectedOrder.size()){
+//            Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME LOST");
+//            round = 3;
+//            ingredientOrder.clear();
+//            selectedOrder.clear();
+//
+//            try {
+//                long delayMillis = 500; // Delay of 0.5 second
+//                Thread.sleep(delayMillis);
+//            } catch (InterruptedException e) {
+//
+//            }
+//
+//            imageDisplayer.setImageResource(R.color.red);
+//            lblRound.setText("GAME OVER\nRESTART");
+//            lblRound.setVisibility(View.VISIBLE);
+//            btnStart.setVisibility(View.VISIBLE);
+//        }
 
     }
 }
