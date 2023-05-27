@@ -28,6 +28,7 @@ public class memoryGame extends AppCompatActivity {
     private ImageView imageDisplayer;
     private Handler handler = new Handler();
     private TextView lblRound;
+    boolean gameOver = false;
 
 
     private int round = 3;
@@ -95,6 +96,11 @@ public class memoryGame extends AppCompatActivity {
     public void onBtn_StartClicked(View Caller){
 
 
+        ingredientOrder.clear();
+        selectedOrder.clear();
+        gameOver = false;
+
+
         lblRound.setVisibility(View.GONE);
 
         btnStart.setVisibility(View.GONE);
@@ -123,9 +129,12 @@ public class memoryGame extends AppCompatActivity {
     }
     private void changeUi(int i) {
 
-        new Handler().postDelayed(() -> imageDisplayer.setImageResource(R.drawable.button_background), 800);
-        int imageId = ingredientOrder.get(i).getImageId();
-        imageDisplayer.setImageResource(imageId);
+        if(!gameOver){
+            new Handler().postDelayed(() -> imageDisplayer.setImageResource(R.drawable.button_background), 500);
+            int imageId = ingredientOrder.get(i).getImageId();
+            imageDisplayer.setImageResource(imageId);
+
+        }
 
     }
 
@@ -215,6 +224,7 @@ public class memoryGame extends AppCompatActivity {
                selectedOrder.clear();
                imageDisplayer.setImageResource(R.color.green);
                lblRound.setText("ROUND "+(round-2));
+               gameOver = false;
                lblRound.setVisibility(View.VISIBLE);
                btnStart.setVisibility(View.VISIBLE);
            }
@@ -222,8 +232,7 @@ public class memoryGame extends AppCompatActivity {
                //loose
                Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME LOST");
                round = 3;
-               ingredientOrder.clear();
-               selectedOrder.clear();
+               gameOver = true;
                imageDisplayer.setImageResource(R.color.red);
                lblRound.setText("GAME OVER\nRESTART");
                lblRound.setVisibility(View.VISIBLE);
@@ -231,24 +240,15 @@ public class memoryGame extends AppCompatActivity {
            }
         }
 
-//        if (ingredientOrder.size()<selectedOrder.size()){
-//            Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME LOST");
-//            round = 3;
-//            ingredientOrder.clear();
-//            selectedOrder.clear();
-//
-//            try {
-//                long delayMillis = 500; // Delay of 0.5 second
-//                Thread.sleep(delayMillis);
-//            } catch (InterruptedException e) {
-//
-//            }
-//
-//            imageDisplayer.setImageResource(R.color.red);
-//            lblRound.setText("GAME OVER\nRESTART");
-//            lblRound.setVisibility(View.VISIBLE);
-//            btnStart.setVisibility(View.VISIBLE);
-//        }
+        if (ingredientOrder.size()<selectedOrder.size()){
+            Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME LOST");
+            round = 3;
+            gameOver = true;
+            imageDisplayer.setImageResource(R.color.red);
+            lblRound.setText("GAME OVER\nRESTART");
+            lblRound.setVisibility(View.VISIBLE);
+            btnStart.setVisibility(View.VISIBLE);
+        }
 
     }
 }
