@@ -70,14 +70,19 @@ public class memoryGame extends AppCompatActivity {
                 menuOption = new Intent(this,MainActivity.class);
                 startActivity(menuOption);
                 //onBackPressed();
+                finish();
                 return true;
             case R.id.menuSettings:
                 menuOption = new Intent(this, ProgramFlow.class);
+                menuOption.putExtra("PATH", "MINIGAME");
                 startActivity(menuOption);
+                finish();
                 return true;
             case R.id.menuHelp:
                 menuOption = new Intent(this, Help.class);
+                menuOption.putExtra("PATH", "MINIGAME");
                 startActivity(menuOption);
+                finish();
                 return true;
             case R.id.menuLogout:
                 menuOption = new Intent(this, Login.class);

@@ -138,11 +138,15 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
                 return true;
             case R.id.menuSettings:
                 menuOption = new Intent(this, ProgramFlow.class);
+                menuOption.putExtra("PATH", "INGREDIENTS");
                 startActivity(menuOption);
+                finish();
                 return true;
             case R.id.menuHelp:
                 menuOption = new Intent(this, Help.class);
+                menuOption.putExtra("PATH", "INGREDIENTS");
                 startActivity(menuOption);
+                finish();
                 return true;
             case R.id.menuLogout:
                 menuOption = new Intent(this, Login.class);

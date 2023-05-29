@@ -31,15 +31,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = getIntent();
-        username = intent.getStringExtra("USERNAME");
+//        Intent intent = getIntent();
+//        username = intent.getStringExtra("USERNAME");
 
         btnSearchRecipe = (ImageButton) findViewById(R.id.btnSearchRecipes);
         btnFavorites = (ImageButton) findViewById(R.id.btnFavorites);
         btnSearchByIngredients = (ImageButton) findViewById(R.id.btnSearchByIngredients);
         btnAddRecipe = (ImageButton) findViewById(R.id.btnAddRecipe);
-
-
 
     }
 
@@ -58,11 +56,15 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menuSettings:
                 menuOption = new Intent(this, ProgramFlow.class);
+                menuOption.putExtra("PATH", "MAIN");
                 startActivity(menuOption);
+                finish();
                 return true;
             case R.id.menuHelp:
                 menuOption = new Intent(this, Help.class);
+                menuOption.putExtra("PATH", "MAIN");
                 startActivity(menuOption);
+                finish();
                 return true;
             case R.id.menuLogout:
                 menuOption = new Intent(this, Login.class);

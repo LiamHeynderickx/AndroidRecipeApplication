@@ -18,5 +18,9 @@
         android:title="Home"
         android:visible="true"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/menuHelp"
+        android:orderInCategory="4"
+        android:title="Database UML" />
 
 </menu>

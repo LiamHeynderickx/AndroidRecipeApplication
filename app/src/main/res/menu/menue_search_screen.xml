@@ -10,8 +10,8 @@
     <item
         android:id="@+id/menuHelp"
         android:orderInCategory="2"
-        android:title="Help"
-        app:showAsAction="never"/>
+        android:title="Database UML"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menuHome"

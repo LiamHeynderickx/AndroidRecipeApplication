@@ -140,11 +140,15 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
                 return true;
             case R.id.menuSettings:
                 menuOption = new Intent(this, ProgramFlow.class);
+                menuOption.putExtra("PATH", "SEARCH");
                 startActivity(menuOption);
+                finish();
                 return true;
             case R.id.menuHelp:
                 menuOption = new Intent(this, Help.class);
+                menuOption.putExtra("PATH", "SEARCH");
                 startActivity(menuOption);
+                finish();
                 return true;
             case R.id.menuLogout:
                 menuOption = new Intent(this, Login.class);

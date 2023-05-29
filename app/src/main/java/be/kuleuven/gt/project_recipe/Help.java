@@ -10,10 +10,15 @@ import android.view.MenuItem;
 
 public class Help extends AppCompatActivity {
 
+    private String path;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Intent intent = getIntent();
+        path = intent.getStringExtra("PATH");
     }
 
     @Override //copy to each new activity
@@ -31,11 +36,15 @@ public class Help extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menuSettings:
                 menuOption = new Intent(this, ProgramFlow.class);
+                menuOption.putExtra("PATH", path);
                 startActivity(menuOption);
+                finish();
                 return true;
             case R.id.menuHelp:
                 menuOption = new Intent(this, Help.class);
+                menuOption.putExtra("PATH", path);
                 startActivity(menuOption);
+                finish();
                 return true;
             case R.id.menuLogout:
                 menuOption = new Intent(this, Login.class);
@@ -46,6 +55,37 @@ public class Help extends AppCompatActivity {
                 menuOption = new Intent(this, MainActivity.class);
                 startActivity(menuOption);
                 finish();
+            case android.R.id.home: // Handle the back button press
+                switch (path){
+                    case "FAVORITES":
+                        menuOption = new Intent(this,Favorites.class);
+                        startActivity(menuOption);
+                        finish();
+                        return true;
+                    case "SEARCH":
+                        menuOption = new Intent(this,SearchRecipes.class);
+                        startActivity(menuOption);
+                        finish();
+                        return true;
+                    case "INGREDIENTS":
+                        menuOption = new Intent(this, SearchByIngredients.class);
+                        startActivity(menuOption);
+                        finish();
+                        return true;
+                    case "MAIN":
+                        menuOption = new Intent(this, MainActivity.class);
+                        startActivity(menuOption);
+                        finish();
+                        return true;
+                    case "MINIGAME":
+                        menuOption = new Intent(this, memoryGame.class);
+                        startActivity(menuOption);
+                        finish();
+                        return true;
+                    default:
+                        break;
+                }
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
