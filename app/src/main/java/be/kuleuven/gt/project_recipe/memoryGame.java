@@ -40,6 +40,7 @@ public class memoryGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_game);
+        setTitle("Memory Game");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btnMeat = (ImageButton)findViewById(R.id.btnMeat);
         btnLettuce = (ImageButton)findViewById(R.id.btnLettuce);
@@ -131,7 +132,6 @@ public class memoryGame extends AppCompatActivity {
             imageDisplayer.setImageResource(imageId);
 
         }
-
     }
 
     private void createRandomArray() {
