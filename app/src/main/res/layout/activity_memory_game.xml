@@ -20,17 +20,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/btnInfo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:contentDescription="Info"
-        android:src="@android:drawable/ic_dialog_info"
-        app:layout_constraintBottom_toBottomOf="@+id/lblmemoryGame"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lblmemoryGame"
-        app:layout_constraintTop_toTopOf="@+id/lblmemoryGame" />
-
-    <ImageButton
         android:id="@+id/btnMeat"
         android:layout_width="75dp"
         android:layout_height="75dp"
