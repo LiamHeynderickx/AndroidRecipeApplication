@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class Help extends AppCompatActivity {
+public class UML extends AppCompatActivity {
 
     private String path;
 
@@ -24,7 +24,7 @@ public class Help extends AppCompatActivity {
     @Override //copy to each new activity
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = new MenuInflater(this);
-        inflater.inflate(R.menu.menu_main_screen, menu);
+        inflater.inflate(R.menu.menue_recipe_displayer, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -34,14 +34,14 @@ public class Help extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.menuSettings:
+            case R.id.menuProgramFlow:
                 menuOption = new Intent(this, ProgramFlow.class);
                 menuOption.putExtra("PATH", path);
                 startActivity(menuOption);
                 finish();
                 return true;
-            case R.id.menuHelp:
-                menuOption = new Intent(this, Help.class);
+            case R.id.menuUMLDiagram:
+                menuOption = new Intent(this, UML.class);
                 menuOption.putExtra("PATH", path);
                 startActivity(menuOption);
                 finish();

@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="be.kuleuven.gt.project_recipe.MainScreen">
     <item
-        android:id="@+id/menuSettings"
+        android:id="@+id/menuProgramFlow"
         android:orderInCategory="1"
         android:title="Program Flow"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menuHelp"
+        android:id="@+id/menuUMLDiagram"
         android:orderInCategory="2"
         android:title="UML Diagrams"
         app:showAsAction="never" />

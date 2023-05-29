@@ -132,29 +132,21 @@ public class RecipeDisplayer extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        try {
-                            JSONObject results = response.getJSONObject(0);
-                            JSONArray steps = results.getJSONArray("steps");
-                            for(int i =0;i<steps.length();i++)
-                            {
-                                JSONObject getStuff =steps.getJSONObject(i);
-                                String step = getStuff.getString("number")+":\n"+getStuff.getString("step")+"\n\n";
-                                recipeSteps.add(step);
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                (Request.Method.GET, url, null, response -> {
+                    try {
+                        JSONObject results = response.getJSONObject(0);
+                        JSONArray steps = results.getJSONArray("steps");
+                        for(int i =0;i<steps.length();i++)
+                        {
+                            JSONObject getStuff =steps.getJSONObject(i);
+                            String step = getStuff.getString("number")+":\n"+getStuff.getString("step")+"\n\n";
+                            recipeSteps.add(step);
                         }
-                    }
-                }, new Response.ErrorListener() {
 
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+                }, error -> {
                 });
         queue.add(jsonArrayRequest);
     }
@@ -217,24 +209,14 @@ public class RecipeDisplayer extends AppCompatActivity {
         StringRequest submitRequest = new StringRequest(
                 Request.Method.POST,
                 Que_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(
-                                RecipeDisplayer.this,
-                                "Added to Favorites",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(
-                                RecipeDisplayer.this,
-                                "Unable to place the order" + error,
-                                Toast.LENGTH_LONG).show();
-                    }
-                }
+                response -> Toast.makeText(
+                        RecipeDisplayer.this,
+                        "Added to Favorites",
+                        Toast.LENGTH_SHORT).show(),
+                error -> Toast.makeText(
+                        RecipeDisplayer.this,
+                        "Unable to place the order" + error,
+                        Toast.LENGTH_LONG).show()
         ) {
             @Override
             protected Map<String, String> getParams() {
@@ -265,15 +247,10 @@ public class RecipeDisplayer extends AppCompatActivity {
                 Request.Method.GET,
                 url,
                 null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Toast.makeText(
-                                RecipeDisplayer.this,
-                                "Removed from favorites",
-                                Toast.LENGTH_LONG).show();
-                    }
-                },
+                response -> Toast.makeText(
+                        RecipeDisplayer.this,
+                        "Removed from favorites",
+                        Toast.LENGTH_LONG).show(),
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {

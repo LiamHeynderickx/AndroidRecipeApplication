@@ -21,8 +21,6 @@ import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -69,13 +67,7 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
         rg = (RadioGroup) findViewById(R.id.rgDiet);
         rbtnVegan = (RadioButton) findViewById(R.id.rbtnIsVegan);
         rbtnVegetarian = (RadioButton) findViewById(R.id.rbtnIsVegetarian);
-
     }
-
-
-
-
-
 
     public void onBtnSearchByName_Clicked(View caller){
 
@@ -138,14 +130,14 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
                 startActivity(menuOption);
                 //onBackPressed();
                 return true;
-            case R.id.menuSettings:
+            case R.id.menuProgramFlow:
                 menuOption = new Intent(this, ProgramFlow.class);
                 menuOption.putExtra("PATH", "SEARCH");
                 startActivity(menuOption);
                 finish();
                 return true;
-            case R.id.menuHelp:
-                menuOption = new Intent(this, Help.class);
+            case R.id.menuUMLDiagram:
+                menuOption = new Intent(this, UML.class);
                 menuOption.putExtra("PATH", "SEARCH");
                 startActivity(menuOption);
                 finish();
@@ -172,32 +164,24 @@ public class SearchRecipes extends AppCompatActivity implements RecyclerViewInte
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                (Request.Method.GET, url, null, response -> {
+                    try {
+                        JSONArray results = response.getJSONArray("results");
+                        for (int i = 0; i < results.length(); i++) {
+                            JSONObject recipeObj = results.getJSONObject(i);
 
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray results = response.getJSONArray("results");
-                            for (int i = 0; i < results.length(); i++) {
-                                JSONObject recipeObj = results.getJSONObject(i);
+                            RecipeInformation recipeInformation = new RecipeInformation();
+                            recipeInformation.setRecipeName(recipeObj.getString("title"));
+                            recipeInformation.setRecipeID(recipeObj.getString("id"));
 
-                                RecipeInformation recipeInformation = new RecipeInformation();
-                                recipeInformation.setRecipeName(recipeObj.getString("title"));
-                                recipeInformation.setRecipeID(recipeObj.getString("id"));
-
-                                recipeList.add(recipeInformation);
-                            }
-                            recyclerView.setAdapter(new MyAdapter(getApplicationContext(),recipeList, SearchRecipes.this));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            recipeList.add(recipeInformation);
                         }
+                        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),recipeList, SearchRecipes.this));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Handle API error
-                    }
+                }, error -> {
+                    // Handle API error
                 });
 
 

@@ -33,15 +33,6 @@ public class Login extends AppCompatActivity {
     private String password;
     private ArrayList<String> listUsernames = new ArrayList<>();
     private ArrayList<String> listPasswords = new ArrayList<>();
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,53 +42,39 @@ public class Login extends AppCompatActivity {
         txtUsername = (TextView) findViewById(R.id.txtUsername);
         txtPassword = (TextView) findViewById(R.id.txtPassword);
         retrieveLoginData();
-
     }
 
     public void onBtnCreateNewAccount_Clicked (View Caller){
-
-
         Intent intent = new Intent(this, CreateNewAccount.class);
         intent.putExtra("listUsernames", listUsernames);
         startActivity(intent);
         finish();
-
     }
     private static final String QUEUE_URL = "https://studev.groept.be/api/a22pt409/GetEverything";
-
-
     private void retrieveLoginData(){
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest queueRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 QUEUE_URL,
                 null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject curObject = response.getJSONObject(i);
-                                String Username = curObject.getString("Username");
-                                String Password = curObject.getString("Password");
-                                listUsernames.add(Username);
-                                listPasswords.add(Password);
+                response -> {
+                    try {
+                        for (int i = 0; i < response.length(); i++) {
+                            JSONObject curObject = response.getJSONObject(i);
+                            String Username = curObject.getString("Username");
+                            String Password = curObject.getString("Password");
+                            listUsernames.add(Username);
+                            listPasswords.add(Password);
 
-                               }
-                        } catch (JSONException e) {
-                            throw new RuntimeException(e);
-                        }
+                           }
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
                     }
                 },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(
-                                Login.this,
-                                "Unable to communicate with the server",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
+                error -> Toast.makeText(
+                        Login.this,
+                        "Unable to communicate with the server",
+                        Toast.LENGTH_LONG).show());
         requestQueue.add(queueRequest);
     }
 
@@ -106,7 +83,6 @@ public class Login extends AppCompatActivity {
         username = txtUsername.getText().toString();
         password = txtPassword.getText().toString();
         boolean correctUsername = false;
-        int index = 0;
         for(int i=0;i< listPasswords.size();i++)
         {
             if(username.equals(listUsernames.get(i)) ){
@@ -124,8 +100,6 @@ public class Login extends AppCompatActivity {
                 else{
                     txtPassword.setText("");
                     txtPassword.setHint("Password Incorrect");
-                    index = i;
-
                 }
             }
         }

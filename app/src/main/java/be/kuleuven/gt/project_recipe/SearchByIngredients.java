@@ -8,22 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.chip.Chip;
@@ -33,7 +29,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class SearchByIngredients extends AppCompatActivity implements View.OnClickListener, RecyclerViewInterface {
@@ -81,7 +76,6 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
 
         recyclerView2.removeAllViews();
-//        getRecipes();
         ArrayList<RecipeInformation> tempRecipeList = recipeList;
 
         recyclerView2.setAdapter(new MyAdapter(getApplicationContext(),tempRecipeList, this));
@@ -136,14 +130,14 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
                 startActivity(menuOption);
                 //onBackPressed();
                 return true;
-            case R.id.menuSettings:
+            case R.id.menuProgramFlow:
                 menuOption = new Intent(this, ProgramFlow.class);
                 menuOption.putExtra("PATH", "INGREDIENTS");
                 startActivity(menuOption);
                 finish();
                 return true;
-            case R.id.menuHelp:
-                menuOption = new Intent(this, Help.class);
+            case R.id.menuUMLDiagram:
+                menuOption = new Intent(this, UML.class);
                 menuOption.putExtra("PATH", "INGREDIENTS");
                 startActivity(menuOption);
                 finish();
@@ -162,45 +156,15 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
         }
     }
 
-
-
-
-    public void defineButtonIngValues() throws FileNotFoundException { //instatiation of array list
-        Ingredients ingredients = new Ingredients();
-        listIngredients = ingredients.getIngredientsList();
-    }
-    public ArrayList<String> filterArray() //for ingredients search
-    {
-        EditText ingredientText = (EditText) findViewById(R.id.txtIngredient);
-        String ingredientWritten = ingredientText.getText().toString();
-
-        String filter = ingredientWritten;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return listIngredients.stream()
-                    .filter(listIngredients -> listIngredients.startsWith(filter))
-                    .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
-        }
-        else{
-            return null;
-        }
-    }
-
-
     @Override
     public void onClick(View v) {
         String nameRemove = ((Chip) v).getText().toString();
-
-        Log.d("*********************************", fullIngredientsQrl);
-
         while(fullIngredientsQrl.contains(nameRemove)){
             fullIngredientsQrl = fullIngredientsQrl.replaceAll(nameRemove, "");
             if(fullIngredientsQrl.contains(",+")){
                 fullIngredientsQrl = fullIngredientsQrl.replaceAll(",+", "");
             }
-            Log.d("*********************************", fullIngredientsQrl);
         }
-
-
         recipeList.clear();
         getRecipesUsingIngredients(fullIngredientsQrl);
         chipGroup.removeView(v);
@@ -210,7 +174,6 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
     private void getRecipesUsingIngredients(String name) { //apiConnection
 
         String url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=a97f080d485740608c87a17ef0957691&includeIngredients="+name;
-        Log.d("###############",  url);
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -227,26 +190,18 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
                                 RecipeInformation recipeInformation = new RecipeInformation();
                                 recipeInformation.setRecipeName(recipeObj.getString("title"));
                                 recipeInformation.setRecipeID(recipeObj.getString("id"));
-//                                JSONArray ingredientArr = recipeObj.getJSONArray("missedIngredients");
-
                                 // Add the Recipe object to the recipeList ArrayList
                                 recipeList.add(recipeInformation);
                             }
-                           // myAdapter.notifyDataSetChanged();
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Handle API error
-                    }
+                }, error -> {
+                    // Handle API error
                 });
-
         // Add the API request to the request queue
-
         queue.add(jsonObjectRequest);
     }
 

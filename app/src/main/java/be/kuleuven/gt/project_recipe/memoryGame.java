@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -72,14 +71,14 @@ public class memoryGame extends AppCompatActivity {
                 //onBackPressed();
                 finish();
                 return true;
-            case R.id.menuSettings:
+            case R.id.menuProgramFlow:
                 menuOption = new Intent(this, ProgramFlow.class);
                 menuOption.putExtra("PATH", "MINIGAME");
                 startActivity(menuOption);
                 finish();
                 return true;
-            case R.id.menuHelp:
-                menuOption = new Intent(this, Help.class);
+            case R.id.menuUMLDiagram:
+                menuOption = new Intent(this, UML.class);
                 menuOption.putExtra("PATH", "MINIGAME");
                 startActivity(menuOption);
                 finish();
@@ -104,10 +103,7 @@ public class memoryGame extends AppCompatActivity {
         ingredientOrder.clear();
         selectedOrder.clear();
         gameOver = false;
-
-
         lblRound.setVisibility(View.GONE);
-
         btnStart.setVisibility(View.GONE);
 
         createRandomArray();
@@ -116,21 +112,16 @@ public class memoryGame extends AppCompatActivity {
             long delayMillis = 500; // Delay of 0.5 second
             Thread.sleep(delayMillis);
         } catch (InterruptedException e) {
-
         }
-
         displayImageSequence();
 
     }
 
     private void displayImageSequence() {
-
         for(int loop1 = 0; loop1 < ingredientOrder.size(); loop1++){
             int n = loop1;
             new Handler().postDelayed(() -> changeUi(n), 1000 * loop1);
         }
-
-
     }
     private void changeUi(int i) {
 
@@ -171,14 +162,12 @@ public class memoryGame extends AppCompatActivity {
                     ingredientOrder.add(p);
                     break;
                 default:
-                    Log.d("ERROR ++++++++++", randomNum+" num <--");
                     break;
             }
 
         }
 
     }
-
     public void onBtn_Meat_Clicked(View Caller) //0
     {
         IngredientType meat = new Meat();
@@ -218,12 +207,10 @@ public class memoryGame extends AppCompatActivity {
            for(int loop1 = 0; loop1 < ingredientOrder.size(); loop1++){
                if(ingredientOrder.get(loop1).getId() != selectedOrder.get(loop1).getId()){
                    isEqual = false;
-                   Log.d("XXXXXXXXXXXXXXXXXXXX", "checkIfEqual: FALSE");
                }
            }
            if(isEqual){
                //win
-               Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME WON");
                round++;
                ingredientOrder.clear();
                selectedOrder.clear();
@@ -235,7 +222,6 @@ public class memoryGame extends AppCompatActivity {
            }
            else{
                //loose
-               Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME LOST");
                round = 3;
                gameOver = true;
                imageDisplayer.setImageResource(R.color.red);
@@ -246,7 +232,6 @@ public class memoryGame extends AppCompatActivity {
         }
 
         if (ingredientOrder.size()<selectedOrder.size()){
-            Log.d("XXXXXXXXXXXXXXXX", "checkIfEqual: GAME LOST");
             round = 3;
             gameOver = true;
             imageDisplayer.setImageResource(R.color.red);

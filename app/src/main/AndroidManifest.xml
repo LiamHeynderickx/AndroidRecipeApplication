@@ -29,7 +29,7 @@
             android:name=".ProgramFlow"
             android:exported="false" />
         <activity
-            android:name=".Help"
+            android:name=".UML"
             android:exported="false" />
         <activity
             android:name=".SearchRecipes"

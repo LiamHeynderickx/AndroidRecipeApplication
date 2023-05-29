@@ -19,26 +19,17 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnSearchByIngredients;
     private ImageButton btnAddRecipe;
     private Drawable drawable;
-
-
     private String username;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Intent intent = getIntent();
-//        username = intent.getStringExtra("USERNAME");
-
         btnSearchRecipe = (ImageButton) findViewById(R.id.btnSearchRecipes);
         btnFavorites = (ImageButton) findViewById(R.id.btnFavorites);
         btnSearchByIngredients = (ImageButton) findViewById(R.id.btnSearchByIngredients);
         btnAddRecipe = (ImageButton) findViewById(R.id.btnAddRecipe);
-
     }
 
     @Override //copy to each new activity
@@ -47,21 +38,19 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_main_screen, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-
     private Intent menuOption; // copy to each activity
     @Override // copy to each activity
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.menuSettings:
+            case R.id.menuProgramFlow:
                 menuOption = new Intent(this, ProgramFlow.class);
                 menuOption.putExtra("PATH", "MAIN");
                 startActivity(menuOption);
                 finish();
                 return true;
-            case R.id.menuHelp:
-                menuOption = new Intent(this, Help.class);
+            case R.id.menuUMLDiagram:
+                menuOption = new Intent(this, UML.class);
                 menuOption.putExtra("PATH", "MAIN");
                 startActivity(menuOption);
                 finish();
@@ -81,24 +70,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBtnSearchRecipes_Clicked(View Caller){
-
         Intent intent = new Intent(this, SearchRecipes.class);
-        intent.putExtra("USERNAME", username);
         startActivity(intent);
         finish();
-
     }
 
     public void onBtnFavorites_clicked(View Caller){
         Intent intent = new Intent(this, Favorites.class);
-        intent.putExtra("USERNAME", username);
         startActivity(intent);
         finish();
     }
 
     public void onBtnSearchByIngredients_clicked(View Caller){
         Intent intent = new Intent(this, SearchByIngredients.class);
-        intent.putExtra("USERNAME", username);
         startActivity(intent);
         finish();
     }

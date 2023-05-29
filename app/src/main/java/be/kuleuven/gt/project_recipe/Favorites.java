@@ -65,13 +65,13 @@ public class Favorites extends AppCompatActivity implements RecyclerViewInterfac
                 finish();
                 //onBackPressed();
                 return true;
-            case R.id.menuSettings:
+            case R.id.menuProgramFlow:
                 menuOption = new Intent(this, ProgramFlow.class);
                 menuOption.putExtra("PATH", "FAVORITES");
                 startActivity(menuOption);
                 return true;
-            case R.id.menuHelp:
-                menuOption = new Intent(this, Help.class);
+            case R.id.menuUMLDiagram:
+                menuOption = new Intent(this, UML.class);
                 menuOption.putExtra("PATH", "FAVORITES");
                 startActivity(menuOption);
                 return true;

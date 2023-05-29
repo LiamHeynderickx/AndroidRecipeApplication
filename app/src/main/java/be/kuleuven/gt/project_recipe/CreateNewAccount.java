@@ -34,8 +34,6 @@ import java.util.ArrayList;
 
 
 public class CreateNewAccount extends AppCompatActivity {
-
-    private static final String QUEUE_URL = "https://studev.groept.be/api/a22pt409/GetEverything";
     private String Que_URL = "https://studev.groept.be/api/a22pt409/insert/";
     private Button btnCreateAccount;
 
@@ -113,26 +111,14 @@ public class CreateNewAccount extends AppCompatActivity {
                 Request.Method.GET,
                 Que_URL,
                 null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-
-                        Toast.makeText(
-                                CreateNewAccount.this,
-                                "Account Created",
-                                Toast.LENGTH_LONG).show();
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(
-                                CreateNewAccount.this,
-                                "Unable to communicate with the server",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
+                response -> Toast.makeText(
+                        CreateNewAccount.this,
+                        "Account Created",
+                        Toast.LENGTH_LONG).show(),
+                error -> Toast.makeText(
+                        CreateNewAccount.this,
+                        "Unable to communicate with the server",
+                        Toast.LENGTH_LONG).show());
         requestQueue.add(queueRequest);
     }
 
