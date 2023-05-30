@@ -251,15 +251,10 @@ public class RecipeDisplayer extends AppCompatActivity {
                         RecipeDisplayer.this,
                         "Removed from favorites",
                         Toast.LENGTH_LONG).show(),
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(
-                                RecipeDisplayer.this,
-                                "Unable to communicate with the server",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
+                error -> Toast.makeText(
+                        RecipeDisplayer.this,
+                        "Unable to communicate with the server",
+                        Toast.LENGTH_LONG).show());
         requestQueue.add(queueRequest);
 
     }

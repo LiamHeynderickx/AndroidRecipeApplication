@@ -78,7 +78,6 @@ public class CreateNewAccount extends AppCompatActivity {
         txtPassword = (TextView) findViewById(R.id.txtNewPassword);
         txtConfirmPassword = (TextView) findViewById(R.id.txtConfirmPassword);
         lblNote = (TextView) findViewById(R.id.lblNote);
-
     }
     @Override //copy to each new activity
     public boolean onCreateOptionsMenu(Menu menu){

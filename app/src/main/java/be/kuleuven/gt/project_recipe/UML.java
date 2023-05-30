@@ -34,27 +34,6 @@ public class UML extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.menuProgramFlow:
-                menuOption = new Intent(this, ProgramFlow.class);
-                menuOption.putExtra("PATH", path);
-                startActivity(menuOption);
-                finish();
-                return true;
-            case R.id.menuUMLDiagram:
-                menuOption = new Intent(this, UML.class);
-                menuOption.putExtra("PATH", path);
-                startActivity(menuOption);
-                finish();
-                return true;
-            case R.id.menuLogout:
-                menuOption = new Intent(this, Login.class);
-                startActivity(menuOption);
-                finish();
-                return true;
-            case R.id.menuHome:
-                menuOption = new Intent(this, MainActivity.class);
-                startActivity(menuOption);
-                finish();
             case android.R.id.home: // Handle the back button press
                 switch (path){
                     case "FAVORITES":

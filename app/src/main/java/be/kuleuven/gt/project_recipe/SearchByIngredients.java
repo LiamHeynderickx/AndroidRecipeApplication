@@ -96,7 +96,6 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
             chip.setVisibility(View.VISIBLE);
             chipGroup.addView(chip);
 
-
             if(fullIngredientsQrl == "" )
             {
                 fullIngredientsQrl += newIngredient;
@@ -105,13 +104,10 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
 
                 fullIngredientsQrl += ",+" + newIngredient;
             }
-
-
         }
         txtNewIngredient.setText("");
         recipeList.clear();
         getRecipesUsingIngredients(fullIngredientsQrl);
-
     }
 
     @Override //copy to each new activity
@@ -177,26 +173,22 @@ public class SearchByIngredients extends AppCompatActivity implements View.OnCli
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                (Request.Method.GET, url, null, response -> {
+                    try {
+                        JSONArray results = response.getJSONArray("results");
+                        for (int i = 0; i < results.length(); i++) {
+                            JSONObject recipeObj = results.getJSONObject(i);
 
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray results = response.getJSONArray("results");
-                            for (int i = 0; i < results.length(); i++) {
-                                JSONObject recipeObj = results.getJSONObject(i);
-
-                                // Create a new Recipe object and populate its properties
-                                RecipeInformation recipeInformation = new RecipeInformation();
-                                recipeInformation.setRecipeName(recipeObj.getString("title"));
-                                recipeInformation.setRecipeID(recipeObj.getString("id"));
-                                // Add the Recipe object to the recipeList ArrayList
-                                recipeList.add(recipeInformation);
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            // Create a new Recipe object and populate its properties
+                            RecipeInformation recipeInformation = new RecipeInformation();
+                            recipeInformation.setRecipeName(recipeObj.getString("title"));
+                            recipeInformation.setRecipeID(recipeObj.getString("id"));
+                            // Add the Recipe object to the recipeList ArrayList
+                            recipeList.add(recipeInformation);
                         }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }, error -> {
                     // Handle API error
